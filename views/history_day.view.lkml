@@ -407,21 +407,25 @@ view: history_day {
   measure: total_snow {
     type:  sum
     sql: ${tot_snowfall_in} ;;
+    value_format: "#.00"
   }
 
   measure: average_snow {
     type: average
     sql: ${tot_snowfall_in} ;;
+    value_format: "#.00"
     }
 
   measure: total_rain {
     type:  sum
     sql: ${tot_precipitation_in} ;;
+    value_format: "#.00"
   }
 
   measure: average_rain {
     type: average
     sql: ${tot_precipitation_in} ;;
+    value_format: "#.00"
   }
 
   measure: average_temperature_swing {
