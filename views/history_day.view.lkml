@@ -1,5 +1,5 @@
 view: history_day {
-  sql_table_name: COUNTY.HISTORY_DAY ;;
+  sql_table_name: WEATHERSOURCE.COUNTY.HISTORY_DAY ;;
 
   dimension: avg_cloud_cover_tot_pct {
     type: number
