@@ -3,7 +3,6 @@ connection: "bruce_snowflake_weathersource_fips"
 # include all the views
 include: "/views/**/*.view"
 include: "../*dashboard.lookml"
-label: "WeatherSource Data"
 
 datagroup: kateweather_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
@@ -13,7 +12,6 @@ datagroup: kateweather_default_datagroup {
 persist_with: kateweather_default_datagroup
 
 explore: history_day {
-  label: "WeatherSource Weather and County Data"
   join: county_fips_codes {
     type: left_outer
     relationship: many_to_one
