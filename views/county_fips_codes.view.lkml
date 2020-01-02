@@ -14,6 +14,11 @@ view: county_fips_codes {
   dimension: state_code {
     type: string
     sql: ${TABLE}."STATE_CODE" ;;
+    link: {
+      label: "{{value}} Detailed Weather Dashboard"
+      url: "/dashboards/745?State={{ value | encode_uri }}"
+      icon_url: "http://www.looker.com/favicon.ico"
+    }
   }
 
   measure: count {

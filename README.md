@@ -1,18 +1,9 @@
-# Get Started
+# Getting Started with Data Blocks
 
 Check out our [**Blocks Directory**](https://looker.com/platform/blocks/directory#data) for a full list of data blocks and use cases
 
 [**Start Modeling**](https://discourse.looker.com/t/data-block-data-block-setup-instructions-and-everything-in-between/5949) by reading through this discourse post.
 
-
-
-# DDL Statements
-
-Use the following DDL statements as a *reference and starting point* for uploading our datasets into your own DB.
-
-Note: *Our DDL statments follow Amazon Redshift syntax. You may need to adjust data types and other fields as necessary for your dialect.*
-
-[(jump)](#datablocks-gsod-redshift) **Working with Redshift? Refer to our steps below.**
 
 ### Schema
 
