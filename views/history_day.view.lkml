@@ -460,6 +460,7 @@ view: history_day {
 
   measure: locations_with_rain {
     type: count_distinct
+    sql: ${fips_county_code} ;;
     filters: {
       field: has_rainfall
       value: "yes"
@@ -469,6 +470,7 @@ view: history_day {
 
   measure: locations_with_snow {
     type: count_distinct
+    sql: ${fips_county_code} ;;
     filters: {
       field: has_snowfall
       value: "yes"
