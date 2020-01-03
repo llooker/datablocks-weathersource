@@ -465,6 +465,14 @@ view: history_day {
       value: "yes"
     }
   }
+
+  measure: locations_with_snow {
+    type: count
+    filters: {
+      field: has_snowfall
+      value: "yes"
+    }
+  }
 # measure: total_days_with_rainfall {
 #   type: count_distinct
 #   filters: {
