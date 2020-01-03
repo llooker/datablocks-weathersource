@@ -9,6 +9,7 @@ view: county_fips_codes {
   dimension: fips_code {
     type: string
     sql: ${TABLE}."FIPS_CODE" ;;
+    map_layer_name: us_counties_fips
   }
 
   dimension: location_name {
