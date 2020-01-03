@@ -472,6 +472,7 @@ view: history_day {
       field: has_snowfall
       value: "yes"
     }
+    drill_fields: [date_date, county_fips_codes.county, county_fips_codes.state, total_snow]
   }
 # measure: total_days_with_rainfall {
 #   type: count_distinct
