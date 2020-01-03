@@ -465,7 +465,7 @@ view: history_day {
       field: has_rainfall
       value: "yes"
     }
-    drill_fields: [drill_fields*, total_snow]
+    drill_fields: [drill_fields*, total_rain]
   }
 
   measure: locations_with_snow {
