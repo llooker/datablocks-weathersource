@@ -445,19 +445,22 @@ view: history_day {
   measure: min_temp {
     type:  min
     sql:  ${min_temperature_heatindex_2_m_f} ;;
+    value_format: "0"
     drill_fields: [date_date, drill_fields*, min_temp]
+
   }
 
   measure: max_temp {
     type:  max
     sql:  ${min_temperature_heatindex_2_m_f} ;;
+    value_format: "0"
     drill_fields: [date_date, drill_fields*, min_temp]
   }
 
   measure: average_humidity {
     type: average
     sql: ${avg_humidity_relative_2_m_pct} ;;
-    value_format: "0.00"
+    value_format: "0"
   }
 
   measure: average_cloud_cover {
