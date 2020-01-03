@@ -472,7 +472,7 @@ view: history_day {
       field: has_snowfall
       value: "yes"
     }
-    drill_fields: [drill_fields*, total_snow]
+    drill_fields: [date_date, county_fips_codes.county, county_fips_codes.state, total_snow]
   }
 
   set: drill_fields {
