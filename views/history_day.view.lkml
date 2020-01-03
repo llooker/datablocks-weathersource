@@ -479,7 +479,7 @@ view: history_day {
   }
 
   set: drill_fields {
-    fields: [date_date, fips_county_code, county_fips_codes.county_name, county_fips_codes.state_code]
+    fields: [fips_county_code, county_fips_codes.county_name, county_fips_codes.state_code]
   }
 # measure: total_days_with_rainfall {
 #   type: count_distinct
