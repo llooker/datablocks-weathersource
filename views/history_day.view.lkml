@@ -18,6 +18,7 @@ view: history_day {
   dimension: location {
     type: string
     sql: ${TABLE}."FIPS_CODE" ;;
+    map_layer_name: us_counties_fips
   }
 
   dimension_group: date {
