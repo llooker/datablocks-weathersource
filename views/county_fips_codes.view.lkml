@@ -11,6 +11,10 @@ view: county_fips_codes {
     sql: ${TABLE}."FIPS_CODE" ;;
   }
 
+  dimension: location_name {
+    type: string
+    sql: ${county_name} || ', ' || ${state_code} ;;
+  }
   dimension: state_code {
     type: string
     sql: ${TABLE}."STATE_CODE" ;;
