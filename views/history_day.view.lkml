@@ -457,6 +457,7 @@ view: history_day {
   measure: average_humidity {
     type: average
     sql: ${avg_humidity_relative_2_m_pct} ;;
+    value_format: "0.00"
   }
 
   measure: average_cloud_cover {
