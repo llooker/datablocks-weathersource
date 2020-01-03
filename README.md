@@ -15,19 +15,11 @@ Check out our [**Blocks Directory**](https://looker.com/platform/blocks/director
 
 ### Add LookML Files to your Looker Project
 
-- Copy the LookML files from this repo [(or download here)](https://github.com/llooker/datablocks-gsod/archive/master.zip)
+- Copy the LookML files from this repo [(or download here)](https://github.com/kate-fray-looker/datablocks-weathersource/archive/master.zip)
 - Add the files to your Looker project (prefixed with `rs`)
 - Change the `connection` parameter in the model file to your Redshift connection
 
 ![looker](lookml_upload.gif)
-
-
-- Copy the LookML files from this repo [(or download here)](https://github.com/llooker/datablocks-gsod/archive/master.zip)
-- Add the files to your Looker project (prefixed with `rs`)
-- Change the `connection` parameter in the model file to your Redshift connection
-
-![looker](lookml_upload.gif)
-
 
 
 Now you're ready to explore WeatherSource data and combine with your other datasets!
