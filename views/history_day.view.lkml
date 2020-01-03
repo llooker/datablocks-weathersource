@@ -443,11 +443,13 @@ view: history_day {
   measure: min_temp {
     type:  min
     sql:  ${min_temperature_heatindex_2_m_f} ;;
+    drill_fields: [date_date, drill_fields*, min_temp]
   }
 
   measure: max_temp {
     type:  max
     sql:  ${min_temperature_heatindex_2_m_f} ;;
+    drill_fields: [date_date, drill_fields*, min_temp]
   }
 
   measure: average_humidity {
