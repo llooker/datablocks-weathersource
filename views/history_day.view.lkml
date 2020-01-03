@@ -408,7 +408,7 @@ view: history_day {
     type:  sum
     sql: ${tot_snowfall_in} ;;
     value_format: "#,##0.00"
-    drill_fields: [date_date, fips_county_code, county_fips_codes.location_name, tot_snowfall_in]
+    drill_fields: [date_date, drill_fields*, tot_snowfall_in]
     }
 
   measure: average_snow {
@@ -421,7 +421,7 @@ view: history_day {
     type:  sum
     sql: ${tot_precipitation_in} ;;
     value_format: "#,##0.00"
-    drill_fields: [date_date, fips_county_code, county_fips_codes.location_name, tot_precipitation_in]
+    drill_fields: [date_date, drill_fields*, tot_precipitation_in]
     }
 
   measure: average_rain {
@@ -481,7 +481,7 @@ view: history_day {
   }
 
   set: drill_fields {
-    fields: [fips_county_code, county_fips_codes.county_name, county_fips_codes.state_code]
+    fields: [fips_county_code, county_fips_codes.location_name]
   }
 # measure: total_days_with_rainfall {
 #   type: count_distinct
