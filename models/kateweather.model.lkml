@@ -2,7 +2,7 @@ connection: "bruce_snowflake_weathersource_fips"
 
 # include all the views
 include: "/views/**/*.view"
-include: "../*dashboard.lookml"
+# include: "../*dashboard.lookml"
 
 datagroup: kateweather_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
