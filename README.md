@@ -7,10 +7,10 @@ Check out our [**Blocks Directory**](https://looker.com/platform/blocks/director
 
 ### Adding LookML Files to your Looker Project
 
-- Copy the LookML files from this repo [(or download here)](https://github.com/kate-fray-looker/datablocks-weathersource/archive/master.zip)
+- Copy the LookML files from this repo [(or download here)](https://github.com/llooker/datablocks-weathersource/archive/master.zip)
 - Add the files to your Looker project
 - Change the `connection` parameter in the model file to your Snowflake connection
 
 
 
-Now you're ready to explore WeatherSource data and combine with your other datasets!
+Now you're ready to explore Weather Source data and combine with your other datasets!
