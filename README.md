@@ -13,4 +13,4 @@ Check out our [**Blocks Directory**](https://looker.com/platform/blocks/director
 
 
 
-Now you're ready to explore WeatherSource data and combine with your other datasets!
+Now you're ready to explore Weather Source data and combine with your other datasets!
