@@ -240,22 +240,23 @@
     model: fips_data
     explore: history_day
     type: single_value
-    fields: [history_day.max_temp, history_day.date_date]
+    fields: [history_day.date_date, history_day.min_temp]
     fill_fields: [history_day.date_date]
-    sorts: [history_day.max_temp]
+    sorts: [history_day.min_temp desc]
     limit: 1
     custom_color_enabled: true
-    custom_color: "#49f3ff"
     show_single_value_title: true
     show_comparison: true
     comparison_type: value
     comparison_reverse_colors: false
     show_comparison_label: false
-    comparison_label: ''
     enable_conditional_formatting: false
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
+    custom_color: "#49f3ff"
+    comparison_label: ''
     series_types: {}
+    defaults_version: 1
     listen:
       State: county_fips_codes.state_code
       Date Range: history_day.date_date

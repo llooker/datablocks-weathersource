@@ -1,6 +1,102 @@
-view: history_day {
-  sql_table_name: WEATHERSOURCE.COUNTY.HISTORY_DAY ;;
+view: history_day_looker_10000_zips {
+  sql_table_name: WEATHERSOURCE.POSTCODE.HISTORY_DAY_LOOKER_10000_ZIPS
+    ;;
 
+  dimension: avg_cloud_cover_tot_pct {
+    type: number
+    sql: ${TABLE}."AVG_CLOUD_COVER_TOT_PCT" ;;
+  }
+
+  dimension: avg_humidity_relative_2_m_pct {
+    type: number
+    sql: ${TABLE}."AVG_HUMIDITY_RELATIVE_2M_PCT" ;;
+  }
+
+  dimension: avg_humidity_specific_2_m_gpkg {
+    type: number
+    sql: ${TABLE}."AVG_HUMIDITY_SPECIFIC_2M_GPKG" ;;
+  }
+
+  dimension: avg_pressure_2_m_mb {
+    type: number
+    sql: ${TABLE}."AVG_PRESSURE_2M_MB" ;;
+  }
+
+  dimension: avg_pressure_mean_sea_level_mb {
+    type: number
+    sql: ${TABLE}."AVG_PRESSURE_MEAN_SEA_LEVEL_MB" ;;
+  }
+
+  dimension: avg_pressure_tendency_2_m_mb {
+    type: number
+    sql: ${TABLE}."AVG_PRESSURE_TENDENCY_2M_MB" ;;
+  }
+
+  dimension: avg_radiation_solar_total_wpm2 {
+    type: number
+    sql: ${TABLE}."AVG_RADIATION_SOLAR_TOTAL_WPM2" ;;
+  }
+
+  dimension: avg_temperature_air_2_m_f {
+    type: number
+    sql: ${TABLE}."AVG_TEMPERATURE_AIR_2M_F" ;;
+  }
+
+
+  dimension: avg_temperature_dewpoint_2_m_f {
+    type: number
+    sql: ${TABLE}."AVG_TEMPERATURE_DEWPOINT_2M_F" ;;
+  }
+
+  dimension: avg_temperature_feelslike_2_m_f {
+    type: number
+    sql: ${TABLE}."AVG_TEMPERATURE_FEELSLIKE_2M_F" ;;
+  }
+
+  dimension: avg_temperature_heatindex_2_m_f {
+    type: number
+    sql: ${TABLE}."AVG_TEMPERATURE_HEATINDEX_2M_F" ;;
+  }
+
+  dimension: avg_temperature_wetbulb_2_m_f {
+    type: number
+    sql: ${TABLE}."AVG_TEMPERATURE_WETBULB_2M_F" ;;
+  }
+
+  dimension: avg_temperature_windchill_2_m_f {
+    type: number
+    sql: ${TABLE}."AVG_TEMPERATURE_WINDCHILL_2M_F" ;;
+  }
+
+  dimension: avg_wind_direction_100_m_deg {
+    type: number
+    sql: ${TABLE}."AVG_WIND_DIRECTION_100M_DEG" ;;
+  }
+
+  dimension: avg_wind_direction_10_m_deg {
+    type: number
+    sql: ${TABLE}."AVG_WIND_DIRECTION_10M_DEG" ;;
+  }
+
+  dimension: avg_wind_direction_80_m_deg {
+    type: number
+    sql: ${TABLE}."AVG_WIND_DIRECTION_80M_DEG" ;;
+  }
+
+  dimension: avg_wind_speed_100_m_mph {
+    type: number
+    sql: ${TABLE}."AVG_WIND_SPEED_100M_MPH" ;;
+  }
+
+  dimension: avg_wind_speed_10_m_mph {
+    type: number
+    sql: ${TABLE}."AVG_WIND_SPEED_10M_MPH" ;;
+  }
+
+  dimension: avg_wind_speed_80_m_mph {
+    type: number
+    sql: ${TABLE}."AVG_WIND_SPEED_80M_MPH" ;;
+  }
 
   dimension: country {
     type: string
@@ -8,20 +104,8 @@ view: history_day {
     sql: ${TABLE}."COUNTRY" ;;
   }
 
-  dimension: fips_county_code {
-    type: string
-    sql: ${TABLE}."FIPS_CODE" ;;
-    map_layer_name: us_counties_fips
-
-  }
-
-  dimension: location {
-    type: string
-    sql: ${TABLE}."FIPS_CODE" ;;
-    map_layer_name: us_counties_fips
-  }
-
-  dimension_group: date {
+  dimension_group: date_valid_std {
+    label: ""
     type: time
     timeframes: [
       raw,
@@ -36,121 +120,9 @@ view: history_day {
     sql: ${TABLE}."DATE_VALID_STD" ;;
   }
 
-  dimension: day_of_year{
+  dimension: doy_std {
     type: number
     sql: ${TABLE}."DOY_STD" ;;
-  }
-
-  dimension: avg_cloud_cover_tot_pct {
-    type: number
-    sql: ${TABLE}."AVG_CLOUD_COVER_TOT_PCT" ;;
-  }
-
-  dimension: avg_humidity_relative_2_m_pct {
-    group_label: "Avg Humidity"
-    type: number
-    sql: ${TABLE}."AVG_HUMIDITY_RELATIVE_2M_PCT" ;;
-  }
-
-  dimension: avg_humidity_specific_2_m_gpkg {
-    group_label: "Avg Humidity"
-    type: number
-    sql: ${TABLE}."AVG_HUMIDITY_SPECIFIC_2M_GPKG" ;;
-  }
-
-  dimension: avg_pressure_2_m_mb {
-    group_label: "Avg Air Pressure"
-    type: number
-    sql: ${TABLE}."AVG_PRESSURE_2M_MB" ;;
-  }
-
-  dimension: avg_pressure_mean_sea_level_mb {
-    group_label: "Avg Air Pressure"
-    type: number
-    sql: ${TABLE}."AVG_PRESSURE_MEAN_SEA_LEVEL_MB" ;;
-  }
-
-  dimension: avg_pressure_tendency_2_m_mb {
-    group_label: "Avg Air Pressure"
-    type: number
-    sql: ${TABLE}."AVG_PRESSURE_TENDENCY_2M_MB" ;;
-  }
-
-  dimension: avg_radiation_solar_total_wpm2 {
-    type: number
-    sql: ${TABLE}."AVG_RADIATION_SOLAR_TOTAL_WPM2" ;;
-  }
-
-  dimension: avg_temperature_air_2_m_f {
-    group_label: "Avg Temperature"
-    type: number
-    sql: ${TABLE}."AVG_TEMPERATURE_AIR_2M_F" ;;
-  }
-
-  dimension: avg_temperature_dewpoint_2_m_f {
-    group_label: "Avg Temperature"
-    type: number
-    sql: ${TABLE}."AVG_TEMPERATURE_DEWPOINT_2M_F" ;;
-  }
-
-  dimension: avg_temperature_feelslike_2_m_f {
-    group_label: "Avg Temperature"
-    type: number
-    sql: ${TABLE}."AVG_TEMPERATURE_FEELSLIKE_2M_F" ;;
-  }
-
-  dimension: avg_temperature_heatindex_2_m_f {
-    group_label: "Avg Temperature"
-    type: number
-    sql: ${TABLE}."AVG_TEMPERATURE_HEATINDEX_2M_F" ;;
-  }
-
-  dimension: avg_temperature_wetbulb_2_m_f {
-    group_label: "Avg Temperature"
-    type: number
-    sql: ${TABLE}."AVG_TEMPERATURE_WETBULB_2M_F" ;;
-  }
-
-  dimension: avg_temperature_windchill_2_m_f {
-    group_label: "Avg Temperature"
-    type: number
-    sql: ${TABLE}."AVG_TEMPERATURE_WINDCHILL_2M_F" ;;
-  }
-
-  dimension: avg_wind_direction_100_m_deg {
-    group_label: "Avg Wind Direction"
-    type: number
-    sql: ${TABLE}."AVG_WIND_DIRECTION_100M_DEG" ;;
-  }
-
-  dimension: avg_wind_direction_10_m_deg {
-    group_label: "Avg Wind Direction"
-    type: number
-    sql: ${TABLE}."AVG_WIND_DIRECTION_10M_DEG" ;;
-  }
-
-  dimension: avg_wind_direction_80_m_deg {
-    group_label: "Avg Wind Direction"
-    type: number
-    sql: ${TABLE}."AVG_WIND_DIRECTION_80M_DEG" ;;
-  }
-
-  dimension: avg_wind_speed_100_m_mph {
-    group_label: "Avg Wind Speed"
-    type: number
-    sql: ${TABLE}."AVG_WIND_SPEED_100M_MPH" ;;
-  }
-
-  dimension: avg_wind_speed_10_m_mph {
-    group_label: "Avg Wind Speed"
-    type: number
-    sql: ${TABLE}."AVG_WIND_SPEED_10M_MPH" ;;
-  }
-
-  dimension: avg_wind_speed_80_m_mph {
-    group_label: "Avg Wind Speed"
-    type: number
-    sql: ${TABLE}."AVG_WIND_SPEED_80M_MPH" ;;
   }
 
   dimension: max_cloud_cover_tot_pct {
@@ -159,31 +131,26 @@ view: history_day {
   }
 
   dimension: max_humidity_relative_2_m_pct {
-    group_label: "Max Humidity"
     type: number
     sql: ${TABLE}."MAX_HUMIDITY_RELATIVE_2M_PCT" ;;
   }
 
   dimension: max_humidity_specific_2_m_gpkg {
-    group_label: "Max Humidity"
     type: number
     sql: ${TABLE}."MAX_HUMIDITY_SPECIFIC_2M_GPKG" ;;
   }
 
   dimension: max_pressure_2_m_mb {
-    group_label: "Max Air Pressure"
     type: number
     sql: ${TABLE}."MAX_PRESSURE_2M_MB" ;;
   }
 
   dimension: max_pressure_mean_sea_level_mb {
-    group_label: "Max Air Pressure"
     type: number
     sql: ${TABLE}."MAX_PRESSURE_MEAN_SEA_LEVEL_MB" ;;
   }
 
   dimension: max_pressure_tendency_2_m_mb {
-    group_label: "Max Air Pressure"
     type: number
     sql: ${TABLE}."MAX_PRESSURE_TENDENCY_2M_MB" ;;
   }
@@ -194,55 +161,46 @@ view: history_day {
   }
 
   dimension: max_temperature_air_2_m_f {
-    group_label: "Max Temperature"
     type: number
     sql: ${TABLE}."MAX_TEMPERATURE_AIR_2M_F" ;;
   }
 
   dimension: max_temperature_dewpoint_2_m_f {
-    group_label: "Max Temperature"
     type: number
     sql: ${TABLE}."MAX_TEMPERATURE_DEWPOINT_2M_F" ;;
   }
 
   dimension: max_temperature_feelslike_2_m_f {
-    group_label: "Max Temperature"
     type: number
     sql: ${TABLE}."MAX_TEMPERATURE_FEELSLIKE_2M_F" ;;
   }
 
   dimension: max_temperature_heatindex_2_m_f {
-    group_label: "Max Temperature"
     type: number
     sql: ${TABLE}."MAX_TEMPERATURE_HEATINDEX_2M_F" ;;
   }
 
   dimension: max_temperature_wetbulb_2_m_f {
-     group_label: "Max Temperature"
     type: number
     sql: ${TABLE}."MAX_TEMPERATURE_WETBULB_2M_F" ;;
   }
 
   dimension: max_temperature_windchill_2_m_f {
-     group_label: "Max Temperature"
     type: number
     sql: ${TABLE}."MAX_TEMPERATURE_WINDCHILL_2M_F" ;;
   }
 
   dimension: max_wind_speed_100_m_mph {
-    group_label: "Max Wind Speed"
     type: number
     sql: ${TABLE}."MAX_WIND_SPEED_100M_MPH" ;;
   }
 
   dimension: max_wind_speed_10_m_mph {
-    group_label: "Max Wind Speed"
     type: number
     sql: ${TABLE}."MAX_WIND_SPEED_10M_MPH" ;;
   }
 
   dimension: max_wind_speed_80_m_mph {
-    group_label: "Max Wind Speed"
     type: number
     sql: ${TABLE}."MAX_WIND_SPEED_80M_MPH" ;;
   }
@@ -253,103 +211,117 @@ view: history_day {
   }
 
   dimension: min_humidity_relative_2_m_pct {
-    group_label: "Min Humidity"
     type: number
     sql: ${TABLE}."MIN_HUMIDITY_RELATIVE_2M_PCT" ;;
   }
 
   dimension: min_humidity_specific_2_m_gpkg {
-    group_label: "Min Humidity"
     type: number
     sql: ${TABLE}."MIN_HUMIDITY_SPECIFIC_2M_GPKG" ;;
   }
 
   dimension: min_pressure_2_m_mb {
-    group_label: "Min Air Pressure"
     type: number
     sql: ${TABLE}."MIN_PRESSURE_2M_MB" ;;
   }
 
   dimension: min_pressure_mean_sea_level_mb {
-    group_label: "Min Air Pressure"
     type: number
     sql: ${TABLE}."MIN_PRESSURE_MEAN_SEA_LEVEL_MB" ;;
   }
 
   dimension: min_pressure_tendency_2_m_mb {
-    group_label: "Min Air Pressure"
     type: number
     sql: ${TABLE}."MIN_PRESSURE_TENDENCY_2M_MB" ;;
   }
 
   dimension: min_radiation_solar_total_wpm2 {
-    hidden: yes
     type: number
     sql: ${TABLE}."MIN_RADIATION_SOLAR_TOTAL_WPM2" ;;
   }
 
   dimension: min_temperature_air_2_m_f {
-    group_label: "Min Temperature"
     type: number
     sql: ${TABLE}."MIN_TEMPERATURE_AIR_2M_F" ;;
   }
 
   dimension: min_temperature_dewpoint_2_m_f {
-    group_label: "Min Temperature"
     type: number
     sql: ${TABLE}."MIN_TEMPERATURE_DEWPOINT_2M_F" ;;
   }
 
   dimension: min_temperature_feelslike_2_m_f {
-    group_label: "Min Temperature"
     type: number
     sql: ${TABLE}."MIN_TEMPERATURE_FEELSLIKE_2M_F" ;;
   }
 
   dimension: min_temperature_heatindex_2_m_f {
-    group_label: "Min Temperature"
     type: number
     sql: ${TABLE}."MIN_TEMPERATURE_HEATINDEX_2M_F" ;;
   }
 
   dimension: min_temperature_wetbulb_2_m_f {
-    group_label: "Min Temperature"
     type: number
     sql: ${TABLE}."MIN_TEMPERATURE_WETBULB_2M_F" ;;
   }
 
   dimension: min_temperature_windchill_2_m_f {
-    group_label: "Min Temperature"
     type: number
     sql: ${TABLE}."MIN_TEMPERATURE_WINDCHILL_2M_F" ;;
   }
 
   dimension: min_wind_speed_100_m_mph {
-    group_label: "Min Wind Speed"
     type: number
     sql: ${TABLE}."MIN_WIND_SPEED_100M_MPH" ;;
   }
 
   dimension: min_wind_speed_10_m_mph {
-    group_label: "Min Wind Speed"
     type: number
     sql: ${TABLE}."MIN_WIND_SPEED_10M_MPH" ;;
   }
 
   dimension: min_wind_speed_80_m_mph {
-    group_label: "Min Wind Speed"
     type: number
     sql: ${TABLE}."MIN_WIND_SPEED_80M_MPH" ;;
+  }
+
+  dimension: postal_code {
+    label: "Location"
+    type: string
+    sql: ${TABLE}."POSTAL_CODE" ;;
+    map_layer_name: us_zipcode_tabulation_areas
+    html: {{zip_to_city.primary_city}}, {{zip_to_city.state}} {{value}} ;;
+    link: {
+      label: "{{ zip_to_city.city_state._value }} - Deep Dive"
+      icon_url: "https://awsmp-logos.s3.amazonaws.com/0d11e4de-e61f-4383-825b-9bcd69598dac/62abb10670ce1f306d5147e144908f32.png"
+      url: "/dashboards/866?Postal%20Code={{ value }}"
+    }
+    link: {
+      label: "{{ zip_to_city.primary_city._value }}, {{ zip_to_city.state._value }} - Deep Dive"
+      icon_url: "https://awsmp-logos.s3.amazonaws.com/0d11e4de-e61f-4383-825b-9bcd69598dac/62abb10670ce1f306d5147e144908f32.png"
+      url: "/dashboards/866?City={{zip_to_city.primary_city._value}}&State={{zip_to_city.state._value}}"
+    }
+    link: {
+      label: "{{ zip_to_city.city_state._value }} - Forecast"
+      icon_url: "https://awsmp-logos.s3.amazonaws.com/0d11e4de-e61f-4383-825b-9bcd69598dac/62abb10670ce1f306d5147e144908f32.png"
+      url: "/dashboards/881?Postal%20Code={{ value }}"
+    }
+    link: {
+      label: "{{ zip_to_city.primary_city._value }}, {{ zip_to_city.state._value }} - Forecast"
+      icon_url: "https://awsmp-logos.s3.amazonaws.com/0d11e4de-e61f-4383-825b-9bcd69598dac/62abb10670ce1f306d5147e144908f32.png"
+      url: "/dashboards/881?City={{zip_to_city.primary_city._value}}&State={{zip_to_city.state._value}}"
+    }
+    link: {
+      label: "{{ zip_to_city.city_state._value }} - 7 Day Anomalies"
+      icon_url: "https://awsmp-logos.s3.amazonaws.com/0d11e4de-e61f-4383-825b-9bcd69598dac/62abb10670ce1f306d5147e144908f32.png"
+      url: "/dashboards/889?City={{zip_to_city.primary_city._value}}&State={{zip_to_city.state._value}}&Postal%20Code={{ value }}"
+    }
+
   }
 
   dimension: tot_precipitation_in {
     type: number
     sql: ${TABLE}."TOT_PRECIPITATION_IN" ;;
-  }
-
-  dimension: has_rainfall {
-    type: yesno
-    sql: ${tot_precipitation_in} > 0 ;;
   }
 
   dimension: tot_radiation_solar_total_wpm2 {
@@ -367,11 +339,6 @@ view: history_day {
     sql: ${TABLE}."TOT_SNOWFALL_IN" ;;
   }
 
-  dimension: has_snowfall {
-    type: yesno
-    sql: ${tot_snowfall_in} > 0 ;;
-  }
-
   dimension: temperature_swing {
     type:  number
     sql: ${max_temperature_air_2_m_f} - ${min_temperature_air_2_m_f}  ;;
@@ -386,21 +353,21 @@ view: history_day {
     type:  sum
     sql: ${tot_snowfall_in} ;;
     value_format: "#,##0.00"
-    drill_fields: [date_date, drill_fields*, total_snow]
-    }
+    drill_fields: [date_valid_std_date, drill_fields*, total_snow]
+  }
 
   measure: average_snow {
     type: average
     sql: ${tot_snowfall_in} ;;
     value_format: "#,##0.00"
-    }
+  }
 
   measure: total_rain {
     type:  sum
     sql: ${tot_precipitation_in} ;;
     value_format: "#,##0.00"
-    drill_fields: [date_date, drill_fields*, total_rain]
-    }
+    drill_fields: [date_valid_std_date, drill_fields*, total_rain]
+  }
 
   measure: average_rain {
     type: average
@@ -411,6 +378,21 @@ view: history_day {
   measure: average_temperature_swing {
     type: average
     sql: ${temperature_swing} ;;
+    value_format_name: decimal_1
+    drill_fields: [date_valid_std_date, drill_fields*, average_temperature_swing]
+  }
+
+  measure: max_temperature_swing {
+    type: max
+    sql: ${temperature_swing} ;;
+    value_format_name: decimal_1
+    drill_fields: [date_valid_std_date, drill_fields*, max_temperature_swing]
+  }
+
+  measure: min_temperature_swing {
+    type: min
+    sql: ${temperature_swing} ;;
+    value_format_name: decimal_1
   }
 
   measure: average_temp {
@@ -422,14 +404,14 @@ view: history_day {
     type:  min
     sql:  ${min_temperature_air_2_m_f} ;;
     value_format: "0"
-    drill_fields: [date_date, drill_fields*, min_temp]
+    drill_fields: [date_valid_std_date, drill_fields*, min_temp]
   }
 
   measure: max_temp {
     type:  max
     sql: ${max_temperature_air_2_m_f} ;;
     value_format: "0"
-    drill_fields: [date_date, drill_fields*, max_temp]
+    drill_fields: [date_valid_std_date, drill_fields*, max_temp]
   }
 
   measure: average_humidity {
@@ -445,7 +427,7 @@ view: history_day {
 
   measure: locations_with_rain {
     type: count_distinct
-    sql: ${fips_county_code} ;;
+    sql: ${postal_code} ;;
     filters: {
       field: has_rainfall
       value: "yes"
@@ -455,7 +437,7 @@ view: history_day {
 
   measure: locations_with_snow {
     type: count_distinct
-    sql: ${fips_county_code} ;;
+    sql: ${postal_code} ;;
     filters: {
       field: has_snowfall
       value: "yes"
@@ -463,7 +445,18 @@ view: history_day {
     drill_fields: [drill_fields*, total_snow]
   }
 
-  set: drill_fields {
-    fields: [fips_county_code, county_fips_codes.location_name]
+  dimension: has_snowfall {
+    type: yesno
+    sql: ${tot_snowfall_in} > 0 ;;
   }
+
+  set: drill_fields {
+    fields: [postal_code]
+  }
+
+  dimension: has_rainfall {
+    type: yesno
+    sql: ${tot_precipitation_in} > 0 ;;
+  }
+
 }

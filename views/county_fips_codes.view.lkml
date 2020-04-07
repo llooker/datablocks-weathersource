@@ -1,5 +1,5 @@
 view: county_fips_codes {
-  sql_table_name: FIPS.COUNTY_FIPS_CODES ;;
+  sql_table_name: WEATHERSOURCE_FIPS.FIPS.COUNTY_FIPS_CODES ;;
 
   dimension: county_name {
     type: string
@@ -17,7 +17,7 @@ view: county_fips_codes {
     sql: ${county_name} || ', ' || ${state_code} ;;
     link: {
       label: "{{state_code}} Detailed Weather Dashboard"
-      url: "/dashboards/745?State={{ state_code | encode_uri }}"
+      url: "/dashboards/871?State={{ state_code }}"
       icon_url: "http://www.looker.com/favicon.ico"
     }
   }
@@ -26,7 +26,7 @@ view: county_fips_codes {
     sql: ${TABLE}."STATE_CODE" ;;
     link: {
       label: "{{value}} Detailed Weather Dashboard"
-      url: "/dashboards/745?State={{ value | encode_uri }}"
+      url: "/dashboards/871?State={{ state_code }}"
       icon_url: "http://www.looker.com/favicon.ico"
     }
   }
