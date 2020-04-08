@@ -2,14 +2,6 @@
   title: Zip Forecast
   layout: newspaper
   elements:
-  - name: ''
-    type: text
-    body_text: <a type="button" target="_blank"  href="https://weathersource.com/sales/"
-      class="btn btn-primary btn-lg btn-block">Contact Weather Source</a>
-    row: 0
-    col: 8
-    width: 8
-    height: 2
   - title: Highest Temp
     name: Highest Temp
     model: fips_data
@@ -66,7 +58,7 @@
     row: 0
     col: 0
     width: 8
-    height: 5
+    height: 4
   - title: Max Temp Swing
     name: Max Temp Swing
     model: fips_data
@@ -81,7 +73,7 @@
     limit: 500
     custom_color_enabled: true
     show_single_value_title: true
-    show_comparison: false
+    show_comparison: true
     comparison_type: value
     comparison_reverse_colors: false
     show_comparison_label: false
@@ -117,14 +109,15 @@
     totals_color: "#808080"
     defaults_version: 1
     series_types: {}
+    hidden_fields: [forecast_day_looker_10000_zips.postal_code]
     listen:
       City: zip_to_city.primary_city
       State: zip_to_city.state
       Postal Code: forecast_day_looker_10000_zips.postal_code
-    row: 2
+    row: 0
     col: 8
     width: 8
-    height: 3
+    height: 4
   - title: Coldest Temp
     name: Coldest Temp
     model: fips_data
@@ -182,7 +175,7 @@
     row: 0
     col: 16
     width: 8
-    height: 5
+    height: 4
   - title: Total Snowfall
     name: Total Snowfall
     model: fips_data
@@ -220,7 +213,7 @@
       City: zip_to_city.primary_city
       State: zip_to_city.state
       Postal Code: forecast_day_looker_10000_zips.postal_code
-    row: 5
+    row: 4
     col: 0
     width: 10
     height: 8
@@ -260,7 +253,7 @@
       City: zip_to_city.primary_city
       State: zip_to_city.state
       Postal Code: forecast_day_looker_10000_zips.postal_code
-    row: 13
+    row: 12
     col: 0
     width: 10
     height: 8
@@ -299,7 +292,7 @@
     x_axis_scale: auto
     y_axis_combined: true
     show_null_points: true
-    interpolation: linear
+    interpolation: monotone
     series_colors:
       forecast_day_looker_10000_zips.max_temp: red
       forecast_day_looker_10000_zips.min_temp: blue
@@ -308,7 +301,7 @@
       City: zip_to_city.primary_city
       State: zip_to_city.state
       Postal Code: forecast_day_looker_10000_zips.postal_code
-    row: 21
+    row: 20
     col: 0
     width: 24
     height: 6
@@ -346,12 +339,13 @@
     x_axis_scale: auto
     y_axis_combined: true
     show_null_points: true
-    interpolation: linear
+    interpolation: monotone
     defaults_version: 1
     listen:
       City: zip_to_city.primary_city
       State: zip_to_city.state
-    row: 13
+      Postal Code: forecast_day_looker_10000_zips.postal_code
+    row: 12
     col: 10
     width: 14
     height: 8
@@ -401,7 +395,8 @@
     listen:
       City: zip_to_city.primary_city
       State: zip_to_city.state
-    row: 5
+      Postal Code: forecast_day_looker_10000_zips.postal_code
+    row: 4
     col: 10
     width: 14
     height: 8

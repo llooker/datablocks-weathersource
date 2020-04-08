@@ -233,7 +233,7 @@
     label_density: 25
     x_axis_scale: auto
     y_axis_combined: true
-    show_null_points: true
+    show_null_points: false
     interpolation: monotone
     x_axis_label: Date
     series_types: {}
@@ -316,7 +316,7 @@
     label_density: 25
     x_axis_scale: auto
     y_axis_combined: true
-    show_null_points: true
+    show_null_points: false
     y_axes: [{label: '', orientation: left, series: [{axisId: history_day_looker_10000_zips.average_temp,
             id: history_day_looker_10000_zips.average_temp, name: Average Temp}, {
             axisId: history_day_looker_10000_zips.average_humidity, id: history_day_looker_10000_zips.average_humidity,
@@ -520,7 +520,7 @@
     label_density: 25
     x_axis_scale: auto
     y_axis_combined: true
-    show_null_points: true
+    show_null_points: false
     interpolation: monotone
     x_axis_label: Date
     series_types: {}

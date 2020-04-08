@@ -2,21 +2,23 @@ view: climatology_day_looker_10000_zips {
   sql_table_name: "POSTCODE"."CLIMATOLOGY_DAY_LOOKER_10000_ZIPS"
     ;;
 
-  dimension: avg_of__daily_avg_temperature_air_f {
-    type: number
-    sql: ${TABLE}."AVG_OF__DAILY_AVG_TEMPERATURE_AIR_F" ;;
-  }
-  dimension: std_of__daily_avg_temperature_air_f {
-    type: number
-    sql: ${TABLE}."STD_OF__DAILY_AVG_TEMPERATURE_AIR_F" ;;
-  }
-
   parameter: number_of_SD {
     view_label: "Number of Standard Deviations"
     allowed_value: { value: "1" }
     allowed_value: { value: "2" }
     allowed_value: { value: "3" }
     default_value: "1"
+  }
+
+
+  dimension: avg_of__daily_avg_temperature_air_f {
+    type: number
+    sql: ${TABLE}."AVG_OF__DAILY_AVG_TEMPERATURE_AIR_F" ;;
+  }
+
+  dimension: std_of__daily_avg_temperature_air_f {
+    type: number
+    sql: ${TABLE}."STD_OF__DAILY_AVG_TEMPERATURE_AIR_F" ;;
   }
 
   dimension: upper_limit {
@@ -39,32 +41,58 @@ view: climatology_day_looker_10000_zips {
     label_from_parameter: number_of_SD
   }
 
-
   measure: one_sd_limit_air_temp {
     type: sum
     sql: ${upper_limit} ;;
   }
-
   measure: one_sd_limit_air_temp_minus {
     type: sum
     sql: ${lower_limit} ;;
   }
 
-  measure: avg_daily_air_temp {
-#     hidden: yes
-    type: average
-    sql: ${avg_of__daily_avg_temperature_air_f} ;;
+  dimension: avg_of__daily_avg_humidity_relative_pct {
+    type: number
+    sql: ${TABLE}."AVG_OF__DAILY_AVG_HUMIDITY_RELATIVE_PCT" ;;
   }
 
-#   measure: osd_daily_aat_plus {
-#     type: number
-#     sql: ${one_sd_daily_avg_temp_air_plus} ;;
-#   }
-#
-#   measure: osd_daily_aat_minus {
-#     type: number
-#     sql: ${one_sd_daily_avg_temp_air_minus} ;;
-#   }
+  dimension: std_of__daily_avg_humidity_relative_pct {
+    type: number
+    sql: ${TABLE}."STD_OF__DAILY_AVG_HUMIDITY_RELATIVE_PCT" ;;
+  }
+
+  dimension: humidity_upper_limit {
+    type: number
+    sql: CASE
+          WHEN {% parameter ${number_of_SD %} = '1' THEN ${avg_of__daily_avg_humidity_relative_pct} + ${std_of__daily_avg_humidity_relative_pct}
+          WHEN {% parameter ${number_of_SD %} = '2' THEN ${avg_of__daily_avg_humidity_relative_pct} + ${std_of__daily_avg_humidity_relative_pct} * 2
+          WHEN {% parameter ${number_of_SD %} = '3' THEN ${avg_of__daily_avg_humidity_relative_pct} + ${std_of__daily_avg_humidity_relative_pct} * 3
+         END;;
+    label_from_parameter: number_of_SD
+  }
+  dimension: humidity_lower_limit {
+    type: number
+    sql: CASE
+          WHEN {% parameter ${number_of_SD %} = '1' THEN ${avg_of__daily_avg_humidity_relative_pct} - ${std_of__daily_avg_humidity_relative_pct}
+          WHEN {% parameter ${number_of_SD %} = '2' THEN ${avg_of__daily_avg_humidity_relative_pct} - ${std_of__daily_avg_humidity_relative_pct} * 2
+          WHEN {% parameter ${number_of_SD %} = '3' THEN ${avg_of__daily_avg_humidity_relative_pct} - ${std_of__daily_avg_humidity_relative_pct} * 3
+         END;;
+    label_from_parameter: number_of_SD
+  }
+
+  measure: one_sd_limit_humidity {
+    type: sum
+    sql: ${humidity_upper_limit} ;;
+  }
+  measure: one_sd_limit_humidity_minus {
+    type: sum
+    sql: ${humidity_lower_limit} ;;
+  }
+
+  dimension: std_of__pos_daily_tot_precipitation_in {
+    type: number
+    sql: ${TABLE}."STD_OF__POS_DAILY_TOT_PRECIPITATION_IN" ;;
+  }
+
 
   dimension: avg_of__daily_avg_temperature_dewpoint_f {
     type: number
@@ -169,10 +197,6 @@ view: climatology_day_looker_10000_zips {
   #   sql: ${TABLE}."AVG_OF__DAILY_MAX_CLOUD_COVER_TOT_PCT" ;;
   # }
 
-  # dimension: avg_of__daily_avg_humidity_relative_pct {
-  #   type: number
-  #   sql: ${TABLE}."AVG_OF__DAILY_AVG_HUMIDITY_RELATIVE_PCT" ;;
-  # }
   # dimension: avg_of__daily_avg_humidity_specific_gpkg {
   #   type: number
   #   sql: ${TABLE}."AVG_OF__DAILY_AVG_HUMIDITY_SPECIFIC_GPKG" ;;
@@ -405,10 +429,6 @@ view: climatology_day_looker_10000_zips {
   #   sql: ${TABLE}."STD_OF__DAILY_AVG_CLOUD_COVER_TOT_PCT" ;;
   # }
 
-  # dimension: std_of__daily_avg_humidity_relative_pct {
-  #   type: number
-  #   sql: ${TABLE}."STD_OF__DAILY_AVG_HUMIDITY_RELATIVE_PCT" ;;
-  # }
 
   # dimension: std_of__daily_avg_humidity_specific_gpkg {
   #   type: number
@@ -518,10 +538,6 @@ view: climatology_day_looker_10000_zips {
   #   sql: ${TABLE}."STD_OF__POS_DAILY_SNOWDEPTH_IN" ;;
   # }
 
-  # dimension: std_of__pos_daily_tot_precipitation_in {
-  #   type: number
-  #   sql: ${TABLE}."STD_OF__POS_DAILY_TOT_PRECIPITATION_IN" ;;
-  # }
 
   # dimension: std_of__pos_daily_tot_snowfall_in {
   #   type: number
