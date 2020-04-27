@@ -1,16 +1,18 @@
+# Change connection to your own snowflake share connection name
 connection: "bruce_snowflake_weathersource"
 
 # include all the views
 include: "/views/**/*.view"
 include: "../*dashboard.lookml"
 
-datagroup: kateweather_default_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
-  max_cache_age: "1 hour"
+datagroup: weathersource_datagroup {
+  sql_trigger: SELECT MAX(date_valid_std) FROM postcode.history_day_looker_10000_zips;;
+  max_cache_age: "12 hour"
 }
 
-persist_with: kateweather_default_datagroup
+persist_with: weathersource_datagroup
 
+# Use this explore to view historical weather by fips (county) code for last 2 years
 explore: history_day {
   label: "Historical Data - FIPS Level"
   join: county_fips_codes {
@@ -20,6 +22,7 @@ explore: history_day {
   }
 }
 
+# Use this explore to view historical weather by zip code for last 2 years
 explore: history_day_looker_10000_zips {
   label: "Historical Data - ZIP Level"
   join: zip_to_city {
@@ -29,6 +32,7 @@ explore: history_day_looker_10000_zips {
   }
 }
 
+# Use this explore to view forecasted weather by zip for next 7 days and climatology data by zip for current year
 explore: forecast_day_looker_10000_zips {
   label: "Forecast Data - ZIP Level"
   join: zip_to_city {

@@ -1,5 +1,6 @@
 view: county_fips_codes {
-  sql_table_name: WEATHERSOURCE_FIPS.FIPS.COUNTY_FIPS_CODES ;;
+  sql_table_name: weathersource_fips.fips.county_fips_codes
+  ;;
 
   dimension: county_name {
     type: string

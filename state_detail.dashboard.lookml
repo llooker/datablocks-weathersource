@@ -4,7 +4,7 @@
   elements:
   - title: Total Snowfall by County
     name: Total Snowfall by County
-    model: fips_data
+    model: weathersource
     explore: history_day
     type: looker_map
     fields: [history_day.location, history_day.total_snow]
@@ -46,7 +46,7 @@
     height: 9
   - title: Total Rainfall by County
     name: Total Rainfall by County
-    model: fips_data
+    model: weathersource
     explore: history_day
     type: looker_map
     fields: [history_day.location, history_day.total_rain]
@@ -88,7 +88,7 @@
     height: 8
   - title: Max and Min Temps
     name: Max and Min Temps
-    model: fips_data
+    model: weathersource
     explore: history_day
     type: looker_column
     fields: [history_day.max_temp, history_day.min_temp, history_day.date_date]
@@ -137,7 +137,7 @@
     height: 6
   - title: Humidity and Temperature
     name: Humidity and Temperature
-    model: fips_data
+    model: weathersource
     explore: history_day
     type: looker_scatter
     fields: [history_day.average_humidity, history_day.average_temp, history_day.date_date]
@@ -159,7 +159,7 @@
     height: 8
   - title: Temperature and Rainfall
     name: Temperature and Rainfall
-    model: fips_data
+    model: weathersource
     explore: history_day
     type: looker_line
     fields: [history_day.date_month, history_day.average_temp, history_day.total_rain]
@@ -209,7 +209,7 @@
     height: 7
   - title: Highest Recorded Temperature
     name: Highest Recorded Temperature
-    model: fips_data
+    model: weathersource
     explore: history_day
     type: single_value
     fields: [history_day.max_temp, history_day.date_date]
@@ -237,7 +237,7 @@
     height: 3
   - title: Lowest Recorded Temperature
     name: Lowest Recorded Temperature
-    model: fips_data
+    model: weathersource
     explore: history_day
     type: single_value
     fields: [history_day.date_date, history_day.min_temp]
@@ -271,7 +271,7 @@
     default_value: CO
     allow_multiple_values: true
     required: false
-    model: fips_data
+    model: weathersource
     explore: history_day
     listens_to_filters: []
     field: county_fips_codes.state_code

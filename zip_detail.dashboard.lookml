@@ -4,7 +4,7 @@
   elements:
   - title: Total Snowfall by Postal Code
     name: Total Snowfall by Postal Code
-    model: fips_data
+    model: weathersource
     explore: history_day_looker_10000_zips
     type: looker_map
     fields: [history_day_looker_10000_zips.postal_code, history_day_looker_10000_zips.total_snow]
@@ -45,7 +45,7 @@
     height: 9
   - title: Total Rainfall by Postal Code
     name: Total Rainfall by Postal Code
-    model: fips_data
+    model: weathersource
     explore: history_day_looker_10000_zips
     type: looker_map
     fields: [history_day_looker_10000_zips.postal_code, history_day_looker_10000_zips.total_rain]
@@ -86,7 +86,7 @@
     height: 7
   - title: Highest Temp
     name: Highest Temp
-    model: fips_data
+    model: weathersource
     explore: history_day_looker_10000_zips
     type: single_value
     fields: [history_day_looker_10000_zips.postal_code, history_day_looker_10000_zips.max_temp,
@@ -145,7 +145,7 @@
     height: 4
   - title: Coldest Temp
     name: Coldest Temp
-    model: fips_data
+    model: weathersource
     explore: history_day_looker_10000_zips
     type: single_value
     fields: [history_day_looker_10000_zips.postal_code, history_day_looker_10000_zips.date_valid_std_date,
@@ -203,7 +203,7 @@
     height: 4
   - title: Avg Temp Swing
     name: Avg Temp Swing
-    model: fips_data
+    model: weathersource
     explore: history_day_looker_10000_zips
     type: looker_line
     fields: [history_day_looker_10000_zips.date_valid_std_date, history_day_looker_10000_zips.average_temperature_swing]
@@ -285,7 +285,7 @@
     height: 7
   - title: Temp vs Humidity
     name: Temp vs Humidity
-    model: fips_data
+    model: weathersource
     explore: history_day_looker_10000_zips
     type: looker_scatter
     fields: [history_day_looker_10000_zips.date_valid_std_date, history_day_looker_10000_zips.average_humidity,
@@ -373,7 +373,7 @@
     height: 9
   - title: Max Temp Swing
     name: Max Temp Swing
-    model: fips_data
+    model: weathersource
     explore: history_day_looker_10000_zips
     type: single_value
     fields: [history_day_looker_10000_zips.max_temperature_swing, history_day_looker_10000_zips.date_valid_std_date,
@@ -490,7 +490,7 @@
     height: 3
   - title: Max / Min Temperature by Day
     name: Max / Min Temperature by Day
-    model: fips_data
+    model: weathersource
     explore: history_day_looker_10000_zips
     type: looker_line
     fields: [history_day_looker_10000_zips.date_valid_std_date, history_day_looker_10000_zips.max_temp,
@@ -550,7 +550,7 @@
     default_value: ''
     allow_multiple_values: true
     required: false
-    model: fips_data
+    model: weathersource
     explore: history_day_looker_10000_zips
     listens_to_filters: [State]
     field: zip_to_city.primary_city
@@ -560,7 +560,7 @@
     default_value: ''
     allow_multiple_values: true
     required: false
-    model: fips_data
+    model: weathersource
     explore: history_day_looker_10000_zips
     listens_to_filters: [City]
     field: zip_to_city.state
@@ -570,7 +570,7 @@
     default_value: ''
     allow_multiple_values: true
     required: false
-    model: fips_data
+    model: weathersource
     explore: history_day_looker_10000_zips
     listens_to_filters: [City, State]
     field: history_day_looker_10000_zips.postal_code

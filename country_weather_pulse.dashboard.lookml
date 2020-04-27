@@ -4,7 +4,7 @@
   elements:
   - title: Highest Recorded Temperature
     name: Highest Recorded Temperature
-    model: fips_data
+    model: weathersource
     explore: history_day
     type: single_value
     fields: [history_day.max_temp, county_fips_codes.location_name, history_day.fips_county_code]
@@ -33,7 +33,7 @@
     height: 6
   - title: Lowest Recorded Temperature
     name: Lowest Recorded Temperature
-    model: fips_data
+    model: weathersource
     explore: history_day
     type: single_value
     fields: [county_fips_codes.location_name, history_day.fips_county_code, history_day.min_temp]
@@ -60,7 +60,7 @@
     height: 6
   - title: Most Rainfall
     name: Most Rainfall
-    model: fips_data
+    model: weathersource
     explore: history_day
     type: single_value
     fields: [history_day.total_rain, county_fips_codes.location_name, history_day.fips_county_code]
@@ -86,7 +86,7 @@
     height: 6
   - title: Most Snowfall
     name: Most Snowfall
-    model: fips_data
+    model: weathersource
     explore: history_day
     type: single_value
     fields: [history_day.total_snow, county_fips_codes.location_name, history_day.fips_county_code]
@@ -141,7 +141,7 @@
     height: 6
   - title: Locations with Rain
     name: Locations with Rain
-    model: fips_data
+    model: weathersource
     explore: history_day
     type: single_value
     fields: [history_day.locations_with_rain]
@@ -165,7 +165,7 @@
     height: 6
   - title: Locations with Snow
     name: Locations with Snow
-    model: fips_data
+    model: weathersource
     explore: history_day
     type: single_value
     fields: [history_day.locations_with_snow]
@@ -179,7 +179,7 @@
     height: 6
   - title: Total Rain by Fips County
     name: Total Rain by Fips County
-    model: fips_data
+    model: weathersource
     explore: history_day
     type: looker_map
     fields: [history_day.fips_county_code, history_day.total_rain]
@@ -196,7 +196,7 @@
     height: 6
   - title: Total Snow by Fips County
     name: Total Snow by Fips County
-    model: fips_data
+    model: weathersource
     explore: history_day
     type: looker_map
     fields: [history_day.fips_county_code, history_day.total_snow]
@@ -213,7 +213,7 @@
     height: 6
   - title: Average Temp by Fips County
     name: Average Temp by Fips County
-    model: fips_data
+    model: weathersource
     explore: history_day
     type: looker_map
     fields: [history_day.fips_county_code, history_day.average_temp]
@@ -227,7 +227,7 @@
     height: 6
   - title: Average Humidity by Fips County
     name: Average Humidity by Fips County
-    model: fips_data
+    model: weathersource
     explore: history_day
     type: looker_map
     fields: [history_day.fips_county_code, history_day.average_humidity]
@@ -250,7 +250,7 @@
     height: 6
   - title: Lowest Average Humidity
     name: Lowest Average Humidity
-    model: fips_data
+    model: weathersource
     explore: history_day
     type: single_value
     fields: [county_fips_codes.location_name, history_day.fips_county_code, history_day.average_humidity]
@@ -277,7 +277,7 @@
     height: 6
   - title: Highest Average Humidity
     name: Highest Average Humidity
-    model: fips_data
+    model: weathersource
     explore: history_day
     type: single_value
     fields: [county_fips_codes.location_name, history_day.fips_county_code, history_day.average_humidity]
@@ -309,7 +309,7 @@
     default_value: last 30 days
     allow_multiple_values: true
     required: false
-    model: fips_data
+    model: weathersource
     explore: history_day
     listens_to_filters: []
     field: history_day.date_date

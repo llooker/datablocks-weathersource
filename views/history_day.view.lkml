@@ -1,5 +1,6 @@
 view: history_day {
-  sql_table_name: WEATHERSOURCE.COUNTY.HISTORY_DAY ;;
+  sql_table_name: county.history_day
+  ;;
 
 
   dimension: country {

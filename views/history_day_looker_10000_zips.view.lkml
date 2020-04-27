@@ -1,108 +1,368 @@
 view: history_day_looker_10000_zips {
-  sql_table_name: WEATHERSOURCE.POSTCODE.HISTORY_DAY_LOOKER_10000_ZIPS
+  sql_table_name: postcode.history_day_looker_10000_zips
     ;;
 
+#######################
+## Dimensions
+#######################
+
+## Averages
   dimension: avg_cloud_cover_tot_pct {
+    hidden: yes
     type: number
-    sql: ${TABLE}."AVG_CLOUD_COVER_TOT_PCT" ;;
+    sql: ${TABLE}.avg_cloud_cover_tot_pct ;;
   }
 
   dimension: avg_humidity_relative_2_m_pct {
+    hidden: yes
     type: number
-    sql: ${TABLE}."AVG_HUMIDITY_RELATIVE_2M_PCT" ;;
+    sql: ${TABLE}.avg_humidity_relative_2m_pct ;;
   }
 
   dimension: avg_humidity_specific_2_m_gpkg {
+    hidden: yes
     type: number
-    sql: ${TABLE}."AVG_HUMIDITY_SPECIFIC_2M_GPKG" ;;
+    sql: ${TABLE}.avg_humidity_specific_2m_gpkg ;;
   }
 
   dimension: avg_pressure_2_m_mb {
+    hidden: yes
     type: number
-    sql: ${TABLE}."AVG_PRESSURE_2M_MB" ;;
+    sql: ${TABLE}.avg_pressure_2m_mb ;;
   }
 
   dimension: avg_pressure_mean_sea_level_mb {
+    hidden: yes
     type: number
-    sql: ${TABLE}."AVG_PRESSURE_MEAN_SEA_LEVEL_MB" ;;
+    sql: ${TABLE}.avg_pressure_mean_sea_level_mb ;;
   }
 
   dimension: avg_pressure_tendency_2_m_mb {
+    hidden: yes
     type: number
-    sql: ${TABLE}."AVG_PRESSURE_TENDENCY_2M_MB" ;;
+    sql: ${TABLE}.avg_pressure_tendency_2m_mb ;;
   }
 
   dimension: avg_radiation_solar_total_wpm2 {
+    hidden: yes
     type: number
-    sql: ${TABLE}."AVG_RADIATION_SOLAR_TOTAL_WPM2" ;;
+    sql: ${TABLE}.avg_radiation_solar_total_wpm2 ;;
   }
 
   dimension: avg_temperature_air_2_m_f {
+    hidden: yes
     type: number
-    sql: ${TABLE}."AVG_TEMPERATURE_AIR_2M_F" ;;
+    sql: ${TABLE}.avg_temperature_air_2m_f ;;
   }
 
-
   dimension: avg_temperature_dewpoint_2_m_f {
+    hidden: yes
     type: number
-    sql: ${TABLE}."AVG_TEMPERATURE_DEWPOINT_2M_F" ;;
+    sql: ${TABLE}.avg_temperature_dewpoint_2m_f ;;
   }
 
   dimension: avg_temperature_feelslike_2_m_f {
+    hidden: yes
     type: number
-    sql: ${TABLE}."AVG_TEMPERATURE_FEELSLIKE_2M_F" ;;
+    sql: ${TABLE}.avg_temperature_feelslike_2m_f ;;
   }
 
   dimension: avg_temperature_heatindex_2_m_f {
+    hidden: yes
     type: number
-    sql: ${TABLE}."AVG_TEMPERATURE_HEATINDEX_2M_F" ;;
+    sql: ${TABLE}.avg_temperature_heatindex_2m_f ;;
   }
 
   dimension: avg_temperature_wetbulb_2_m_f {
+    hidden: yes
     type: number
-    sql: ${TABLE}."AVG_TEMPERATURE_WETBULB_2M_F" ;;
+    sql: ${TABLE}.avg_temperature_wetbulb_2m_f ;;
   }
 
   dimension: avg_temperature_windchill_2_m_f {
+    hidden: yes
     type: number
-    sql: ${TABLE}."AVG_TEMPERATURE_WINDCHILL_2M_F" ;;
+    sql: ${TABLE}.avg_temperature_windchill_2m_f ;;
   }
 
   dimension: avg_wind_direction_100_m_deg {
+    hidden: yes
     type: number
-    sql: ${TABLE}."AVG_WIND_DIRECTION_100M_DEG" ;;
+    sql: ${TABLE}.avg_wind_direction_100m_deg ;;
   }
 
   dimension: avg_wind_direction_10_m_deg {
+    hidden: yes
     type: number
-    sql: ${TABLE}."AVG_WIND_DIRECTION_10M_DEG" ;;
+    sql: ${TABLE}.avg_wind_direction_10m_deg ;;
   }
 
   dimension: avg_wind_direction_80_m_deg {
+    hidden: yes
     type: number
-    sql: ${TABLE}."AVG_WIND_DIRECTION_80M_DEG" ;;
+    sql: ${TABLE}.avg_wind_direction_80m_deg ;;
   }
 
   dimension: avg_wind_speed_100_m_mph {
+    hidden: yes
     type: number
-    sql: ${TABLE}."AVG_WIND_SPEED_100M_MPH" ;;
+    sql: ${TABLE}.avg_wind_speed_100m_mph ;;
   }
 
   dimension: avg_wind_speed_10_m_mph {
+    hidden: yes
     type: number
-    sql: ${TABLE}."AVG_WIND_SPEED_10M_MPH" ;;
+    sql: ${TABLE}.avg_wind_speed_10m_mph ;;
   }
 
   dimension: avg_wind_speed_80_m_mph {
+    hidden: yes
     type: number
-    sql: ${TABLE}."AVG_WIND_SPEED_80M_MPH" ;;
+    sql: ${TABLE}.avg_wind_speed_80m_mph ;;
   }
 
-  dimension: country {
-    type: string
-    map_layer_name: countries
-    sql: ${TABLE}."COUNTRY" ;;
+## Max
+  dimension: max_cloud_cover_tot_pct {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.max_cloud_cover_tot_pct ;;
   }
+
+  dimension: max_humidity_relative_2_m_pct {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.max_humidity_relative_2m_pct ;;
+  }
+
+  dimension: max_humidity_specific_2_m_gpkg {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.max_humidity_specific_2m_gpkg ;;
+  }
+
+  dimension: max_pressure_2_m_mb {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.max_pressure_2m_mb ;;
+  }
+
+  dimension: max_pressure_mean_sea_level_mb {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.max_pressure_mean_sea_level_mb ;;
+  }
+
+  dimension: max_pressure_tendency_2_m_mb {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.max_pressure_tendency_2m_mb ;;
+  }
+
+  dimension: max_radiation_solar_total_wpm2 {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.max_radiation_solar_total_wpm2 ;;
+  }
+
+  dimension: max_temperature_air_2_m_f {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.max_temperature_air_2m_f ;;
+  }
+
+  dimension: max_temperature_dewpoint_2_m_f {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.max_temperature_dewpoint_2m_f ;;
+  }
+
+  dimension: max_temperature_feelslike_2_m_f {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.max_temperature_feelslike_2m_f ;;
+  }
+
+  dimension: max_temperature_heatindex_2_m_f {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.max_temperature_heatindex_2m_f ;;
+  }
+
+  dimension: max_temperature_wetbulb_2_m_f {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.max_temperature_wetbulb_2m_f ;;
+  }
+
+  dimension: max_temperature_windchill_2_m_f {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.max_temperature_windchill_2m_f ;;
+  }
+
+  dimension: max_wind_speed_100_m_mph {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.max_wind_speed_100m_mph ;;
+  }
+
+  dimension: max_wind_speed_10_m_mph {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.max_wind_speed_10m_mph ;;
+  }
+
+  dimension: max_wind_speed_80_m_mph {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.max_wind_speed_80m_mph ;;
+  }
+
+## Min
+  dimension: min_cloud_cover_tot_pct {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.min_cloud_cover_tot_pct ;;
+  }
+
+  dimension: min_humidity_relative_2_m_pct {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.min_humidity_relative_2m_pct ;;
+  }
+
+  dimension: min_humidity_specific_2_m_gpkg {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.min_humidity_specific_2m_gpkg ;;
+  }
+
+  dimension: min_pressure_2_m_mb {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.min_pressure_2m_mb ;;
+  }
+
+  dimension: min_pressure_mean_sea_level_mb {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.min_pressure_mean_sea_level_mb ;;
+  }
+
+  dimension: min_pressure_tendency_2_m_mb {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.min_pressure_tendency_2m_mb ;;
+  }
+
+  dimension: min_radiation_solar_total_wpm2 {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.min_radiation_solar_total_wpm2 ;;
+  }
+
+  dimension: min_temperature_air_2_m_f {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.min_temperature_air_2m_f ;;
+  }
+
+  dimension: min_temperature_dewpoint_2_m_f {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.min_temperature_dewpoint_2m_f ;;
+  }
+
+  dimension: min_temperature_feelslike_2_m_f {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.min_temperature_feelslike_2m_f ;;
+  }
+
+  dimension: min_temperature_heatindex_2_m_f {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.min_temperature_heatindex_2m_f ;;
+  }
+
+  dimension: min_temperature_wetbulb_2_m_f {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.min_temperature_wetbulb_2m_f ;;
+  }
+
+  dimension: min_temperature_windchill_2_m_f {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.min_temperature_windchill_2m_f ;;
+  }
+
+  dimension: min_wind_speed_100_m_mph {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.min_wind_speed_100m_mph ;;
+  }
+
+  dimension: min_wind_speed_10_m_mph {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.min_wind_speed_10m_mph ;;
+  }
+
+  dimension: min_wind_speed_80_m_mph {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.min_wind_speed_80m_mph ;;
+  }
+
+## Totals
+  dimension: tot_precipitation_in {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.tot_precipitation_in ;;
+  }
+
+  dimension: tot_radiation_solar_total_wpm2 {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.tot_radiation_solar_total_wpm2 ;;
+  }
+
+  dimension: tot_snowdepth_in {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.tot_snowdepth_in ;;
+  }
+
+  dimension: tot_snowfall_in {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.tot_snowfall_in ;;
+  }
+
+#######################
+## Derived Dimensions
+#######################
+
+  dimension: temperature_swing {
+    hidden: yes
+    type:  number
+    sql: ${max_temperature_air_2_m_f} - ${min_temperature_air_2_m_f}  ;;
+  }
+
+  dimension: has_snowfall {
+    type: yesno
+    sql: ${tot_snowfall_in} > 0 ;;
+  }
+
+  dimension: has_rainfall {
+    type: yesno
+    sql: ${tot_precipitation_in} > 0 ;;
+  }
+
+#######################
+## Date
+#######################
 
   dimension_group: date_valid_std {
     label: ""
@@ -117,178 +377,29 @@ view: history_day_looker_10000_zips {
     ]
 #     convert_tz: no
     datatype: date
-    sql: ${TABLE}."DATE_VALID_STD" ;;
+    sql: ${TABLE}.date_valid_std ;;
   }
 
   dimension: doy_std {
+    hidden: yes
     type: number
-    sql: ${TABLE}."DOY_STD" ;;
+    sql: ${TABLE}.doy_std ;;
   }
 
-  dimension: max_cloud_cover_tot_pct {
-    type: number
-    sql: ${TABLE}."MAX_CLOUD_COVER_TOT_PCT" ;;
-  }
+#######################
+## Location
+#######################
 
-  dimension: max_humidity_relative_2_m_pct {
-    type: number
-    sql: ${TABLE}."MAX_HUMIDITY_RELATIVE_2M_PCT" ;;
-  }
-
-  dimension: max_humidity_specific_2_m_gpkg {
-    type: number
-    sql: ${TABLE}."MAX_HUMIDITY_SPECIFIC_2M_GPKG" ;;
-  }
-
-  dimension: max_pressure_2_m_mb {
-    type: number
-    sql: ${TABLE}."MAX_PRESSURE_2M_MB" ;;
-  }
-
-  dimension: max_pressure_mean_sea_level_mb {
-    type: number
-    sql: ${TABLE}."MAX_PRESSURE_MEAN_SEA_LEVEL_MB" ;;
-  }
-
-  dimension: max_pressure_tendency_2_m_mb {
-    type: number
-    sql: ${TABLE}."MAX_PRESSURE_TENDENCY_2M_MB" ;;
-  }
-
-  dimension: max_radiation_solar_total_wpm2 {
-    type: number
-    sql: ${TABLE}."MAX_RADIATION_SOLAR_TOTAL_WPM2" ;;
-  }
-
-  dimension: max_temperature_air_2_m_f {
-    type: number
-    sql: ${TABLE}."MAX_TEMPERATURE_AIR_2M_F" ;;
-  }
-
-  dimension: max_temperature_dewpoint_2_m_f {
-    type: number
-    sql: ${TABLE}."MAX_TEMPERATURE_DEWPOINT_2M_F" ;;
-  }
-
-  dimension: max_temperature_feelslike_2_m_f {
-    type: number
-    sql: ${TABLE}."MAX_TEMPERATURE_FEELSLIKE_2M_F" ;;
-  }
-
-  dimension: max_temperature_heatindex_2_m_f {
-    type: number
-    sql: ${TABLE}."MAX_TEMPERATURE_HEATINDEX_2M_F" ;;
-  }
-
-  dimension: max_temperature_wetbulb_2_m_f {
-    type: number
-    sql: ${TABLE}."MAX_TEMPERATURE_WETBULB_2M_F" ;;
-  }
-
-  dimension: max_temperature_windchill_2_m_f {
-    type: number
-    sql: ${TABLE}."MAX_TEMPERATURE_WINDCHILL_2M_F" ;;
-  }
-
-  dimension: max_wind_speed_100_m_mph {
-    type: number
-    sql: ${TABLE}."MAX_WIND_SPEED_100M_MPH" ;;
-  }
-
-  dimension: max_wind_speed_10_m_mph {
-    type: number
-    sql: ${TABLE}."MAX_WIND_SPEED_10M_MPH" ;;
-  }
-
-  dimension: max_wind_speed_80_m_mph {
-    type: number
-    sql: ${TABLE}."MAX_WIND_SPEED_80M_MPH" ;;
-  }
-
-  dimension: min_cloud_cover_tot_pct {
-    type: number
-    sql: ${TABLE}."MIN_CLOUD_COVER_TOT_PCT" ;;
-  }
-
-  dimension: min_humidity_relative_2_m_pct {
-    type: number
-    sql: ${TABLE}."MIN_HUMIDITY_RELATIVE_2M_PCT" ;;
-  }
-
-  dimension: min_humidity_specific_2_m_gpkg {
-    type: number
-    sql: ${TABLE}."MIN_HUMIDITY_SPECIFIC_2M_GPKG" ;;
-  }
-
-  dimension: min_pressure_2_m_mb {
-    type: number
-    sql: ${TABLE}."MIN_PRESSURE_2M_MB" ;;
-  }
-
-  dimension: min_pressure_mean_sea_level_mb {
-    type: number
-    sql: ${TABLE}."MIN_PRESSURE_MEAN_SEA_LEVEL_MB" ;;
-  }
-
-  dimension: min_pressure_tendency_2_m_mb {
-    type: number
-    sql: ${TABLE}."MIN_PRESSURE_TENDENCY_2M_MB" ;;
-  }
-
-  dimension: min_radiation_solar_total_wpm2 {
-    type: number
-    sql: ${TABLE}."MIN_RADIATION_SOLAR_TOTAL_WPM2" ;;
-  }
-
-  dimension: min_temperature_air_2_m_f {
-    type: number
-    sql: ${TABLE}."MIN_TEMPERATURE_AIR_2M_F" ;;
-  }
-
-  dimension: min_temperature_dewpoint_2_m_f {
-    type: number
-    sql: ${TABLE}."MIN_TEMPERATURE_DEWPOINT_2M_F" ;;
-  }
-
-  dimension: min_temperature_feelslike_2_m_f {
-    type: number
-    sql: ${TABLE}."MIN_TEMPERATURE_FEELSLIKE_2M_F" ;;
-  }
-
-  dimension: min_temperature_heatindex_2_m_f {
-    type: number
-    sql: ${TABLE}."MIN_TEMPERATURE_HEATINDEX_2M_F" ;;
-  }
-
-  dimension: min_temperature_wetbulb_2_m_f {
-    type: number
-    sql: ${TABLE}."MIN_TEMPERATURE_WETBULB_2M_F" ;;
-  }
-
-  dimension: min_temperature_windchill_2_m_f {
-    type: number
-    sql: ${TABLE}."MIN_TEMPERATURE_WINDCHILL_2M_F" ;;
-  }
-
-  dimension: min_wind_speed_100_m_mph {
-    type: number
-    sql: ${TABLE}."MIN_WIND_SPEED_100M_MPH" ;;
-  }
-
-  dimension: min_wind_speed_10_m_mph {
-    type: number
-    sql: ${TABLE}."MIN_WIND_SPEED_10M_MPH" ;;
-  }
-
-  dimension: min_wind_speed_80_m_mph {
-    type: number
-    sql: ${TABLE}."MIN_WIND_SPEED_80M_MPH" ;;
+  dimension: country {
+    type: string
+    hidden: yes
+    sql: ${TABLE}.country ;;
   }
 
   dimension: postal_code {
     label: "Location"
     type: string
-    sql: ${TABLE}."POSTAL_CODE" ;;
+    sql: ${TABLE}.postal_code ;;
     map_layer_name: us_zipcode_tabulation_areas
     html: {{zip_to_city.primary_city}}, {{zip_to_city.state}} {{value}} ;;
     link: {
@@ -316,33 +427,11 @@ view: history_day_looker_10000_zips {
       icon_url: "https://awsmp-logos.s3.amazonaws.com/0d11e4de-e61f-4383-825b-9bcd69598dac/62abb10670ce1f306d5147e144908f32.png"
       url: "/dashboards/889?City={{zip_to_city.primary_city._value}}&State={{zip_to_city.state._value}}&Postal%20Code={{ value }}"
     }
-
   }
 
-  dimension: tot_precipitation_in {
-    type: number
-    sql: ${TABLE}."TOT_PRECIPITATION_IN" ;;
-  }
-
-  dimension: tot_radiation_solar_total_wpm2 {
-    type: number
-    sql: ${TABLE}."TOT_RADIATION_SOLAR_TOTAL_WPM2" ;;
-  }
-
-  dimension: tot_snowdepth_in {
-    type: number
-    sql: ${TABLE}."TOT_SNOWDEPTH_IN" ;;
-  }
-
-  dimension: tot_snowfall_in {
-    type: number
-    sql: ${TABLE}."TOT_SNOWFALL_IN" ;;
-  }
-
-  dimension: temperature_swing {
-    type:  number
-    sql: ${max_temperature_air_2_m_f} - ${min_temperature_air_2_m_f}  ;;
-  }
+#######################
+## Measures
+#######################
 
   measure: count {
     type: count
@@ -445,18 +534,14 @@ view: history_day_looker_10000_zips {
     drill_fields: [drill_fields*, total_snow]
   }
 
-  dimension: has_snowfall {
-    type: yesno
-    sql: ${tot_snowfall_in} > 0 ;;
-  }
+#######################
+## Drills
+#######################
 
   set: drill_fields {
     fields: [postal_code]
   }
 
-  dimension: has_rainfall {
-    type: yesno
-    sql: ${tot_precipitation_in} > 0 ;;
-  }
+
 
 }

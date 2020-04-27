@@ -23,28 +23,28 @@
     height: 4
   - title: Air Temperature Anomalies
     name: Air Temperature Anomalies
-    model: fips_data
+    model: weathersource
     explore: forecast_day_looker_10000_zips
     type: looker_line
     fields: [forecast_day_looker_10000_zips.postal_code, forecast_day_looker_10000_zips.date_valid_std_date,
       climatology_day_looker_10000_zips.avg_of__daily_avg_temperature_air_f, climatology_day_looker_10000_zips.std_of__daily_avg_temperature_air_f,
       forecast_day_looker_10000_zips.average_temp,
-      climatology_day_looker_10000_zips.one_sd_limit_air_temp, climatology_day_looker_10000_zips.one_sd_limit_air_temp_minus]
+      climatology_day_looker_10000_zips.air_temp_plus_std_dev, climatology_day_looker_10000_zips.air_temp_minus_std_dev]
     filters:
       forecast_day_looker_10000_zips.date_valid_std_date: after 1 days from now
     sorts: [forecast_day_looker_10000_zips.date_valid_std_date desc]
     limit: 500
     column_limit: 50
-    dynamic_fields: [{table_calculation: outlier, label: Outlier, expression: 'if(${forecast_day_looker_10000_zips.average_temp}>${climatology_day_looker_10000_zips.one_sd_limit_air_temp}
-          OR ${forecast_day_looker_10000_zips.average_temp} < ${climatology_day_looker_10000_zips.one_sd_limit_air_temp_minus},${forecast_day_looker_10000_zips.average_temp},null)',
+    dynamic_fields: [{table_calculation: outlier, label: Outlier, expression: 'if(${forecast_day_looker_10000_zips.average_temp}>${climatology_day_looker_10000_zips.air_temp_plus_std_dev}
+          OR ${forecast_day_looker_10000_zips.average_temp} < ${climatology_day_looker_10000_zips.air_temp_minus_std_dev},${forecast_day_looker_10000_zips.average_temp},null)',
         value_format: !!null '', value_format_name: !!null '', _kind_hint: measure,
         _type_hint: number}, {table_calculation: lower_bound, label: Lower Bound,
-        expression: "${climatology_day_looker_10000_zips.one_sd_limit_air_temp_minus}",
+        expression: "${climatology_day_looker_10000_zips.air_temp_minus_std_dev}",
         value_format: !!null '', value_format_name: !!null '', _kind_hint: measure,
-        _type_hint: number}, {table_calculation: mid_area, label: Mid Area, expression: "${climatology_day_looker_10000_zips.one_sd_limit_air_temp}\
-          \ - ${climatology_day_looker_10000_zips.one_sd_limit_air_temp_minus}", value_format: !!null '',
+        _type_hint: number}, {table_calculation: mid_area, label: Mid Area, expression: "${climatology_day_looker_10000_zips.air_temp_plus_std_dev}\
+          \ - ${climatology_day_looker_10000_zips.air_temp_minus_std_dev}", value_format: !!null '',
         value_format_name: !!null '', _kind_hint: measure, _type_hint: number}, {
-        table_calculation: upper_bound, label: Upper bound, expression: "${climatology_day_looker_10000_zips.one_sd_limit_air_temp}",
+        table_calculation: upper_bound, label: Upper bound, expression: "${climatology_day_looker_10000_zips.air_temp_plus_std_dev}",
         value_format: !!null '', value_format_name: !!null '', _kind_hint: measure,
         _type_hint: number}]
     query_timezone: America/Los_Angeles
@@ -78,8 +78,8 @@
     series_types:
       outlier: scatter
     series_colors:
-      climatology_day_looker_10000_zips.one_sd_limit_air_temp: green
-      climatology_day_looker_10000_zips.one_sd_limit_air_temp_minus: green
+      climatology_day_looker_10000_zips.air_temp_plus_std_dev: green
+      climatology_day_looker_10000_zips.air_temp_minus_std_dev: green
       outlier: red
       forecast_day_looker_10000_zips.average_temp: blue
       lower_bound: transparent
@@ -129,28 +129,28 @@
     height: 9
   - title: Humidity Anomalies
     name: Humidity Anomalies
-    model: fips_data
+    model: weathersource
     explore: forecast_day_looker_10000_zips
     type: looker_line
     fields: [forecast_day_looker_10000_zips.postal_code, forecast_day_looker_10000_zips.date_valid_std_date,
-      forecast_day_looker_10000_zips.average_humidity, climatology_day_looker_10000_zips.one_sd_limit_humidity,
-      climatology_day_looker_10000_zips.one_sd_limit_humidity_minus]
+      forecast_day_looker_10000_zips.average_humidity, climatology_day_looker_10000_zips.humidity_plus_std_dev,
+      climatology_day_looker_10000_zips.humidity_minus_std_dev]
     filters:
       forecast_day_looker_10000_zips.date_valid_std_date: after 1 days from now
     sorts: [forecast_day_looker_10000_zips.date_valid_std_date desc]
     limit: 500
     column_limit: 50
-    dynamic_fields: [{table_calculation: outlier, label: Outlier, expression: 'if(${forecast_day_looker_10000_zips.average_humidity}>${climatology_day_looker_10000_zips.one_sd_limit_humidity}
-          OR ${forecast_day_looker_10000_zips.average_humidity} < ${climatology_day_looker_10000_zips.one_sd_limit_humidity_minus},${forecast_day_looker_10000_zips.average_humidity},null)',
+    dynamic_fields: [{table_calculation: outlier, label: Outlier, expression: 'if(${forecast_day_looker_10000_zips.average_humidity}>${climatology_day_looker_10000_zips.humidity_plus_std_dev}
+          OR ${forecast_day_looker_10000_zips.average_humidity} < ${climatology_day_looker_10000_zips.humidity_minus_std_dev},${forecast_day_looker_10000_zips.average_humidity},null)',
         value_format: !!null '', value_format_name: !!null '', _kind_hint: measure,
         _type_hint: number}, {table_calculation: lower_bound, label: Lower Bound,
-        expression: "${climatology_day_looker_10000_zips.one_sd_limit_air_temp_minus}",
+        expression: "${climatology_day_looker_10000_zips.air_temp_minus_std_dev}",
         value_format: !!null '', value_format_name: !!null '', is_disabled: true,
         _kind_hint: dimension, _type_hint: 'null'}, {table_calculation: mid_area,
-        label: Mid Area, expression: "${climatology_day_looker_10000_zips.one_sd_limit_air_temp}\
-          \ - ${climatology_day_looker_10000_zips.one_sd_limit_air_temp_minus}", value_format: !!null '',
+        label: Mid Area, expression: "${climatology_day_looker_10000_zips.air_temp_plus_std_dev}\
+          \ - ${climatology_day_looker_10000_zips.air_temp_minus_std_dev}", value_format: !!null '',
         value_format_name: !!null '', is_disabled: true, _kind_hint: dimension, _type_hint: number},
-      {table_calculation: upper_bound, label: Upper bound, expression: "${climatology_day_looker_10000_zips.one_sd_limit_air_temp}",
+      {table_calculation: upper_bound, label: Upper bound, expression: "${climatology_day_looker_10000_zips.air_temp_plus_std_dev}",
         value_format: !!null '', value_format_name: !!null '', is_disabled: true,
         _kind_hint: dimension, _type_hint: 'null'}]
     query_timezone: America/Los_Angeles
@@ -184,16 +184,16 @@
     series_types:
       outlier: scatter
     series_colors:
-      climatology_day_looker_10000_zips.one_sd_limit_air_temp: green
-      climatology_day_looker_10000_zips.one_sd_limit_air_temp_minus: green
+      climatology_day_looker_10000_zips.air_temp_plus_std_dev: green
+      climatology_day_looker_10000_zips.air_temp_minus_std_dev: green
       outlier: red
       forecast_day_looker_10000_zips.average_temp: blue
       lower_bound: transparent
       upper_bound: transparent
       mid_area: "#72D16D"
       forecast_day_looker_10000_zips.average_humidity: blue
-      climatology_day_looker_10000_zips.one_sd_limit_humidity: green
-      climatology_day_looker_10000_zips.one_sd_limit_humidity_minus: green
+      climatology_day_looker_10000_zips.humidity_plus_std_dev: green
+      climatology_day_looker_10000_zips.humidity_minus_std_dev: green
     series_labels:
       mid_area: Historical Average
       forecast_day_looker_10000_zips.average_temp: Average Forecast Temperature
@@ -235,7 +235,7 @@
     height: 8
   - title: Untitled
     name: Untitled
-    model: fips_data
+    model: weathersource
     explore: forecast_day_looker_10000_zips
     type: single_value
     fields: [forecast_day_looker_10000_zips.postal_code]
@@ -264,7 +264,7 @@
     default_value: ''
     allow_multiple_values: false
     required: false
-    model: fips_data
+    model: weathersource
     explore: forecast_day_looker_10000_zips
     listens_to_filters: [State]
     field: zip_to_city.primary_city
@@ -274,7 +274,7 @@
     default_value: ''
     allow_multiple_values: false
     required: false
-    model: fips_data
+    model: weathersource
     explore: forecast_day_looker_10000_zips
     listens_to_filters: [City]
     field: zip_to_city.state
@@ -284,7 +284,7 @@
     default_value: ''
     allow_multiple_values: false
     required: true
-    model: fips_data
+    model: weathersource
     explore: forecast_day_looker_10000_zips
     listens_to_filters: [State, City]
     field: forecast_day_looker_10000_zips.postal_code
@@ -294,7 +294,7 @@
     default_value: '1'
     allow_multiple_values: false
     required: true
-    model: fips_data
+    model: weathersource
     explore: forecast_day_looker_10000_zips
     listens_to_filters: []
     field: climatology_day_looker_10000_zips.number_of_SD

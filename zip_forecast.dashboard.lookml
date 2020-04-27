@@ -4,7 +4,7 @@
   elements:
   - title: Highest Temp
     name: Highest Temp
-    model: fips_data
+    model: weathersource
     explore: forecast_day_looker_10000_zips
     type: single_value
     fields: [forecast_day_looker_10000_zips.date_valid_std_date, forecast_day_looker_10000_zips.max_temp,
@@ -61,7 +61,7 @@
     height: 4
   - title: Max Temp Swing
     name: Max Temp Swing
-    model: fips_data
+    model: weathersource
     explore: forecast_day_looker_10000_zips
     type: single_value
     fields: [forecast_day_looker_10000_zips.date_valid_std_date, forecast_day_looker_10000_zips.postal_code,
@@ -120,7 +120,7 @@
     height: 4
   - title: Coldest Temp
     name: Coldest Temp
-    model: fips_data
+    model: weathersource
     explore: forecast_day_looker_10000_zips
     type: single_value
     fields: [forecast_day_looker_10000_zips.date_valid_std_date, forecast_day_looker_10000_zips.postal_code,
@@ -178,7 +178,7 @@
     height: 4
   - title: Total Snowfall
     name: Total Snowfall
-    model: fips_data
+    model: weathersource
     explore: forecast_day_looker_10000_zips
     type: looker_map
     fields: [forecast_day_looker_10000_zips.postal_code, forecast_day_looker_10000_zips.total_snow]
@@ -219,7 +219,7 @@
     height: 8
   - title: Total Rainfall
     name: Total Rainfall
-    model: fips_data
+    model: weathersource
     explore: forecast_day_looker_10000_zips
     type: looker_map
     fields: [forecast_day_looker_10000_zips.postal_code, forecast_day_looker_10000_zips.total_rain]
@@ -259,7 +259,7 @@
     height: 8
   - title: Max / Min Temperature Forecast by Day
     name: Max / Min Temperature Forecast by Day
-    model: fips_data
+    model: weathersource
     explore: forecast_day_looker_10000_zips
     type: looker_line
     fields: [forecast_day_looker_10000_zips.date_valid_std_date, forecast_day_looker_10000_zips.max_temp,
@@ -307,7 +307,7 @@
     height: 6
   - title: Avg Temp Swing
     name: Avg Temp Swing
-    model: fips_data
+    model: weathersource
     explore: forecast_day_looker_10000_zips
     type: looker_line
     fields: [forecast_day_looker_10000_zips.date_valid_std_date, forecast_day_looker_10000_zips.average_temperature_swing]
@@ -351,7 +351,7 @@
     height: 8
   - title: Temp vs Humidity
     name: Temp vs Humidity
-    model: fips_data
+    model: weathersource
     explore: forecast_day_looker_10000_zips
     type: looker_scatter
     fields: [forecast_day_looker_10000_zips.date_valid_std_date, forecast_day_looker_10000_zips.average_humidity,
@@ -407,7 +407,7 @@
     default_value: ''
     allow_multiple_values: true
     required: false
-    model: fips_data
+    model: weathersource
     explore: forecast_day_looker_10000_zips
     listens_to_filters: [State]
     field: zip_to_city.primary_city
@@ -417,7 +417,7 @@
     default_value: ''
     allow_multiple_values: true
     required: false
-    model: fips_data
+    model: weathersource
     explore: forecast_day_looker_10000_zips
     listens_to_filters: [City]
     field: zip_to_city.state
@@ -427,7 +427,7 @@
     default_value: ''
     allow_multiple_values: true
     required: false
-    model: fips_data
+    model: weathersource
     explore: forecast_day_looker_10000_zips
     listens_to_filters: [State, City]
     field: forecast_day_looker_10000_zips.postal_code
