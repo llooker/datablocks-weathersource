@@ -12,16 +12,6 @@ datagroup: weathersource_datagroup {
 
 persist_with: weathersource_datagroup
 
-# Use this explore to view historical weather by fips (county) code for last 2 years
-explore: history_day {
-  label: "Historical Data - FIPS Level"
-  join: county_fips_codes {
-    type: left_outer
-    relationship: many_to_one
-    sql_on: ${county_fips_codes.fips_code} = ${history_day.fips_county_code} ;;
-  }
-}
-
 # Use this explore to view historical weather by zip code for last 2 years
 explore: history_day_looker_10000_zips {
   label: "Historical Data - ZIP Level"
