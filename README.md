@@ -1,75 +1,72 @@
-# Getting Started with Data Blocks
-
-Check out our [**Blocks Directory**](https://looker.com/platform/blocks/directory#data) for a full list of data blocks and use cases
-
-[**Start Modeling**](https://discourse.looker.com/t/data-block-data-block-setup-instructions-and-everything-in-between/5949) by reading through this discourse post.
+### What does this Looker Block do for me?
+**(1) Quantify the Impact of Weather on Your Business** - Bring historical, future, and climatological weather data into your machine learning models and day-to-day analytics to help quantify the impact of weather on your operations, reduce waste, increase return on investment, fine-tune logistics, deploy strategic marketing, improve resource planning, and more.
 
 
-### Adding LookML Files to your Looker Project
+**(2) Query Hyper-Local Weather and Climate Data** - From lat/lon coordinates to geographically bounded areas such as ZIP or Postal Code, designated market area, metropolitan statistical area, and more, this block gives you the ability to ask weather related questions for any point(s) of interest.
 
-- Copy the LookML files from this repo [(or download here)](https://github.com/llooker/datablocks-weathersource/archive/master.zip)
-- Add the files to your Looker project
-- Change the `connection` parameter in the model file to your Snowflake share connection
+**(3) Analyze Zip Codes and See Anomalies** - Dive into a particular zip code to see past weather trends, a future forecast, and even find future weather anomalies based on climatological trends.
 
-Now you're ready to explore [Weather Source](https://weathersource.com/) data and combine with your other datasets!
+**A sampling of the analysis this Block can enable includes:**
 
-This Looker block contains three explores, five dashbaords, and six different view files that can be used for analysis:
+- Retail & Food Service: Analyze weather’s effects on product sales, seasonal inventory, and footfall traffic.
+- Finance: Leverage weather data to find alpha and generate optimum trade signals.
+- Real Estate: Monitor weather’s impact on asset locations.
+- Energy: Anticipate weather anomalies and potential changes in demand.
+- Logistics: Identify weather events and perils that result in delivery delays.
+- Healthcare: Understand weather’s influence on emergency room and clinic visits to optimize staffing.
+- Agriculture: Quantify the impact of weather on planting schedules, crop yields, and overall field performance.
+- And More: Nearly every industry has some degree of weather sensitivity.
 
-* Explores:
-  * Historical Data - FIPS Level
-  * Historical Data - ZIP Level
-  * Forecast Data - Zip Level
+### Weather Source Data Structure
 
-* Dashboards:
-  * Country Weather Pulse
-  * State Detail
-  * Zip Detail
-  * Zip Forecast
-  * Zip Anomaly
+* Historical, Forecasted, and Climatalogical data is updated daily. Hisortical and Forecasted data contain a variety of weather metrics including cloud cover, humidity, pressure, radiation, temperature, wind direction, and precipitation. Maximums, minimums, averages, and totals (for precipitation) are included for these fields (e.g. average temperate, max temperate, and min temperature for a given zip code for a given day).
 
-* View Files:
-  * Lookup files:
-    * county_fips_codes
-    * zip_to_city
+* Climatological data contains information that allows you to see how the current weather compares to historical weather patterns using standard deviations and averages.
+*
+* To aid in your analysis, Looker has already defined the below measures (aggregates) for the this block. These measures are available for both historical and forecasted data. Measures outside of these will need to be created by the user.
 
-  * Data files:
-    * climatology_day_looker_10000_zips
-    * forecast_day_looker_10000_zips
-    * history_day_looker_10000_zips
-    * history_day
+  - **total_snow:** total snowfall in inches
+  - **average_snow:** average snowfall in inches
+  - **total_rain:** total rain in inches
+  - **average_rain:** average rain in inches
+  - **average_temperature_swing:** average temperate swing (max air temperature minus minimum air temperature)
+  - **max_temperature_swing:** max temperate swing (max air temperature minus minimum air temperature)
+  - **min_temperature_swing:** min temperate swing (max air temperature minus minimum air temperature)
+  - **average_temp:** average air temperature
+  - **min_temp:** minimum air temperature
+  - **max_temp:** maximum air temperature
+  - **average_humidity:** average relative humidity
+  - **average_cloud_cover:** average cloud cover
+  - **locations_with_rain:** number of locations that have had rainfall for a given date range (if no date range included, will count all the days that a location had rain)
+  - **locations_with_snow:** number of locations that have had snowfall for a given date range (if no date range included, will count all the days that a location had snow)
 
-**history_day_looker_10000_zips:** This view file contains two years of historical weather data for 10,000 randomized zip codes throughout the United States. It includes various weather related fields around cloud cover, humidity, pressure, radiation, temperature, wind direction, and precipitation. Maximums, minimums, averages, and totals (for precipitation) for these fields (e.g. average temperate, max temperate, and min temperature for a given zip code for a given day). To aid in your analysis, Looker has already defined the following measures for you:
+### Block Structure
 
-* total_snow: total snowfall in inches
-* average_snow: average snowfall in inches
-* total_rain: total rain in inches
-* average_rain: average rain in inches
-* average_temperature_swing: average temperate swing (max air temperature minus minimum air temperature)
-* max_temperature_swing: max temperate swing (max air temperature minus minimum air temperature)
-* min_temperature_swing: min temperate swing (max air temperature minus minimum air temperature)
-* average_temp: average air temperature
-* min_temp: minimum air temperature
-* max_temp: maximum air temperature
-* average_humidity: average relative humidity
-* average_cloud_cover: average cloud cover
-* locations_with_rain: number of locations that have had rainfall for a given date range (if no date range included, will count all the days that a location had rain)
-* locations_with_snow: number of locations that have had snowfall for a given date range (if no date range included, will count all the days that a location had snow)
+* ``weathersource`` contains all join logic to build out the relevant explores: Historical Data - FIPS Level, Historical Data - ZIP Level, and Forecast Data - ZIP Level.
 
-**forecast_day_looker_10000_zips:** This view file contains seven days of forecast weather data for 10,000 randomized zip codes throughout the United States. The fields are the same as the historical data weather fields.
+* ``climatology_day_looker_10000_zips``: this contains all of the dimensions and measures for climatological zip code data. Many of the dimensions are hidden using the ``hidden: yes`` parameter. This is done to create a more intuitive explore.
+* ``forecast_day_looker_10000_zips``: this contains all of the dimensions and measures for forecasted zip code data (seven day forecast). Many of the dimensions are hidden using the ``hidden: yes`` parameter. This is done to create a more intuitive explore.
+* ``history_day_looker_10000_zips``: this contains all of the dimensions and measures for historical zip code data (two years of data). Many of the dimensions are hidden using the ``hidden: yes`` parameter. This is done to create a more intuitive explore.
+* ``history_day``: this contains all of the dimensions and measures for historical FIPS code data (two years of data). Many of the dimensions are hidden using the ``hidden: yes`` parameter. This is done to create a more intuitive explore.
+* ``county_fips_codes``: this view file is used to map FIPS codes to a particular county.
+* ``zip_to_city``: this view file is used to map zip codes to particular cities. It is joined with the following view files: ``climatology_day_looker_10000_zips``, ``forecast_day_looker_10000_zips``, ``history_day_looker_10000_zips``
+* ``zip_detail``: this dashboard allows a user to see a high level summary for a particular zip code for the last 30 days (default). You can click on any zip code on the map to drill down further or use the filter options. You can also link out to the zip forecast and zip anomaly dashboards from here to see the forecast for that particular zip code or see upcoming weather anomalies.
+* ``zip_forecast``: this dashboard allows a user to see the seven day forecast for a particular zip code.
+* ``zip_anomaly``: this dashboard shows the upcoming weather anomalies. It requires a zip code before it will populate with data and is usually reached by linking from the zip detail of zip forecast dashboard
 
-* total_snow: total snowfall in inches
-* average_snow: average snowfall in inches
-* total_rain: total rain in inches
-* average_rain: average rain in inches
-* average_temperature_swing: average temperate swing (max air temperature minus minimum air temperature)
-* max_temperature_swing: max temperate swing (max air temperature minus minimum air temperature)
-* min_temperature_swing: min temperate swing (max air temperature minus minimum air temperature)
-* average_temp: average air temperature
-* min_temp: minimum air temperature
-* max_temp: maximum air temperature
-* average_humidity: average relative humidity
-* average_cloud_cover: average cloud cover
-* locations_with_rain: number of locations that predict to have rainfall for a given date range (if no date range included, will count all the days that a location is predicted to have rain)
-* locations_with_snow: number of locations that predict to have snowfall for a given date range (if no date range included, will count all the days that a location is predicted to have snow)
 
-**climatology_day_looker_10000_zips:**
+### Customizations
+
+* **Connection**: in the `weathersource` model file, change the connection name at the top to the name of your Snowflake share connection.
+
+* **Dashboards**: you'll want to move to dashboards out of the LookML Dashboards folder.
+  * Pick the folder that you want to move these dashboards too
+  * Navigate to Zip Detail, Zip Forecast, and Zip Anomaly and make note of the dashboard number which can be found in the url (i.e. if the url was company.looker.com/dashboards/886 then **886** is the dashboard number)
+  * Use these numbers to update the appropriate links in four locations (next step)
+
+* **Links**: You will find links in these view files: ``forecast_day_looker_10000_zips``, ``history_day_looker_10000_zips``, ``zip_to_city``, ``county_fips_codes``. These will need to updated to reflect the new dashboard ids.
+
+
+## What if I find an error? Suggestions for improvements?
+
+Great! Blocks were designed for continuous improvement through the help of the entire Looker community, and we'd love your input. To log an error or improvement recommendations, simply create a "New Issue" in the corresponding [Github repo for this Block](https://github.com/llooker/weather_source/issues). Please be as detailed as possible in your explanation, and we'll address it as quick as we can.
