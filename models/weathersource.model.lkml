@@ -3,7 +3,7 @@ connection: "bruce_snowflake_weathersource"
 
 # include all the views
 include: "/views/**/*.view"
-include: "../*dashboard.lookml"
+include: "/dashboards/**/*.dashboard"
 
 datagroup: weathersource_datagroup {
   sql_trigger: SELECT MAX(date_valid_std) FROM postcode.history_day_looker_10000_zips;;
