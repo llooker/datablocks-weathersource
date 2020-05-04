@@ -25,7 +25,8 @@
 
 * Create a new project by hitting `New LookML Project` under `Develop`->`Manager LookML Projects` in your Looker instance.
 * Under **Starting Point**, choose **Clone Public Git Repository**
-* Enter **git://github.com/llooker/datablocks-weathersource.git**
+* Enter `git://github.com/llooker/datablocks-weathersource.git`
+* Follow [these instructions](https://docs.looker.com/data-modeling/learning-lookml/importing-projects) to import this project into your other projects
 
 ## Customizations
 
