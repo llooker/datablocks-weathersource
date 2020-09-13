@@ -5,14 +5,14 @@
   - title: Highest Temp
     name: Highest Temp
     model: weathersource
-    explore: forecast_day_looker_10000_zips
+    explore: forecast_day_zips
     type: single_value
-    fields: [forecast_day_looker_10000_zips.date_valid_std_date, forecast_day_looker_10000_zips.max_temp,
-      forecast_day_looker_10000_zips.postal_code]
+    fields: [forecast_day_zips.date_valid_std_date, forecast_day_zips.max_temp,
+      forecast_day_zips.postal_code]
     filters:
-      forecast_day_looker_10000_zips.date_valid_std_date: after 1 days from now
-      forecast_day_looker_10000_zips.max_temp: NOT NULL
-    sorts: [forecast_day_looker_10000_zips.max_temp desc]
+      forecast_day_zips.date_valid_std_date: after 1 days from now
+      forecast_day_zips.max_temp: NOT NULL
+    sorts: [forecast_day_zips.max_temp desc]
     limit: 500
     custom_color_enabled: true
     show_single_value_title: true
@@ -50,11 +50,11 @@
     interpolation: linear
     defaults_version: 1
     series_types: {}
-    hidden_fields: [forecast_day_looker_10000_zips.postal_code]
+    hidden_fields: [forecast_day_zips.postal_code]
     listen:
-      City: zip_to_city.primary_city
+      City: zip_to_city.city
       State: zip_to_city.state
-      Postal Code: forecast_day_looker_10000_zips.postal_code
+      Postal Code: forecast_day_zips.postal_code
     row: 0
     col: 0
     width: 8
@@ -62,14 +62,14 @@
   - title: Max Temp Swing
     name: Max Temp Swing
     model: weathersource
-    explore: forecast_day_looker_10000_zips
+    explore: forecast_day_zips
     type: single_value
-    fields: [forecast_day_looker_10000_zips.date_valid_std_date, forecast_day_looker_10000_zips.postal_code,
-      forecast_day_looker_10000_zips.max_temperature_swing]
+    fields: [forecast_day_zips.date_valid_std_date, forecast_day_zips.postal_code,
+      forecast_day_zips.max_temperature_swing]
     filters:
-      forecast_day_looker_10000_zips.date_valid_std_date: after 1 days from now
-      forecast_day_looker_10000_zips.max_temperature_swing: NOT NULL
-    sorts: [forecast_day_looker_10000_zips.max_temperature_swing desc]
+      forecast_day_zips.date_valid_std_date: after 1 days from now
+      forecast_day_zips.max_temperature_swing: NOT NULL
+    sorts: [forecast_day_zips.max_temperature_swing desc]
     limit: 500
     custom_color_enabled: true
     show_single_value_title: true
@@ -109,11 +109,11 @@
     totals_color: "#808080"
     defaults_version: 1
     series_types: {}
-    hidden_fields: [forecast_day_looker_10000_zips.postal_code]
+    hidden_fields: [forecast_day_zips.postal_code]
     listen:
-      City: zip_to_city.primary_city
+      City: zip_to_city.city
       State: zip_to_city.state
-      Postal Code: forecast_day_looker_10000_zips.postal_code
+      Postal Code: forecast_day_zips.postal_code
     row: 0
     col: 8
     width: 8
@@ -121,13 +121,13 @@
   - title: Coldest Temp
     name: Coldest Temp
     model: weathersource
-    explore: forecast_day_looker_10000_zips
+    explore: forecast_day_zips
     type: single_value
-    fields: [forecast_day_looker_10000_zips.date_valid_std_date, forecast_day_looker_10000_zips.postal_code,
-      forecast_day_looker_10000_zips.min_temp]
+    fields: [forecast_day_zips.date_valid_std_date, forecast_day_zips.postal_code,
+      forecast_day_zips.min_temp]
     filters:
-      forecast_day_looker_10000_zips.date_valid_std_date: after 1 days from now
-    sorts: [forecast_day_looker_10000_zips.min_temp]
+      forecast_day_zips.date_valid_std_date: after 1 days from now
+    sorts: [forecast_day_zips.min_temp]
     limit: 500
     custom_color_enabled: true
     show_single_value_title: true
@@ -169,9 +169,9 @@
     defaults_version: 1
     series_types: {}
     listen:
-      City: zip_to_city.primary_city
+      City: zip_to_city.city
       State: zip_to_city.state
-      Postal Code: forecast_day_looker_10000_zips.postal_code
+      Postal Code: forecast_day_zips.postal_code
     row: 0
     col: 16
     width: 8
@@ -179,12 +179,12 @@
   - title: Total Snowfall
     name: Total Snowfall
     model: weathersource
-    explore: forecast_day_looker_10000_zips
+    explore: forecast_day_zips
     type: looker_map
-    fields: [forecast_day_looker_10000_zips.postal_code, forecast_day_looker_10000_zips.total_snow]
+    fields: [forecast_day_zips.postal_code, forecast_day_zips.total_snow]
     filters:
-      forecast_day_looker_10000_zips.date_valid_std_date: after 1 days from now
-    sorts: [forecast_day_looker_10000_zips.total_snow desc]
+      forecast_day_zips.date_valid_std_date: after 1 days from now
+    sorts: [forecast_day_zips.total_snow desc]
     limit: 500
     map_plot_mode: points
     heatmap_gridlines: false
@@ -210,9 +210,9 @@
     series_types: {}
     defaults_version: 1
     listen:
-      City: zip_to_city.primary_city
+      City: zip_to_city.city
       State: zip_to_city.state
-      Postal Code: forecast_day_looker_10000_zips.postal_code
+      Postal Code: forecast_day_zips.postal_code
     row: 4
     col: 0
     width: 10
@@ -220,12 +220,12 @@
   - title: Total Rainfall
     name: Total Rainfall
     model: weathersource
-    explore: forecast_day_looker_10000_zips
+    explore: forecast_day_zips
     type: looker_map
-    fields: [forecast_day_looker_10000_zips.postal_code, forecast_day_looker_10000_zips.total_rain]
+    fields: [forecast_day_zips.postal_code, forecast_day_zips.total_rain]
     filters:
-      forecast_day_looker_10000_zips.date_valid_std_date: after 1 days from now
-    sorts: [forecast_day_looker_10000_zips.total_rain desc]
+      forecast_day_zips.date_valid_std_date: after 1 days from now
+    sorts: [forecast_day_zips.total_rain desc]
     limit: 500
     map_plot_mode: points
     heatmap_gridlines: false
@@ -250,9 +250,9 @@
     reverse_map_value_colors: false
     defaults_version: 1
     listen:
-      City: zip_to_city.primary_city
+      City: zip_to_city.city
       State: zip_to_city.state
-      Postal Code: forecast_day_looker_10000_zips.postal_code
+      Postal Code: forecast_day_zips.postal_code
     row: 12
     col: 0
     width: 10
@@ -260,14 +260,14 @@
   - title: Max / Min Temperature Forecast by Day
     name: Max / Min Temperature Forecast by Day
     model: weathersource
-    explore: forecast_day_looker_10000_zips
+    explore: forecast_day_zips
     type: looker_line
-    fields: [forecast_day_looker_10000_zips.date_valid_std_date, forecast_day_looker_10000_zips.max_temp,
-      forecast_day_looker_10000_zips.min_temp]
-    fill_fields: [forecast_day_looker_10000_zips.date_valid_std_date]
+    fields: [forecast_day_zips.date_valid_std_date, forecast_day_zips.max_temp,
+      forecast_day_zips.min_temp]
+    fill_fields: [forecast_day_zips.date_valid_std_date]
     filters:
-      forecast_day_looker_10000_zips.date_valid_std_date: after 1 days from now
-    sorts: [forecast_day_looker_10000_zips.date_valid_std_date desc]
+      forecast_day_zips.date_valid_std_date: after 1 days from now
+    sorts: [forecast_day_zips.date_valid_std_date desc]
     limit: 500
     x_axis_gridlines: false
     y_axis_gridlines: true
@@ -294,13 +294,13 @@
     show_null_points: true
     interpolation: monotone
     series_colors:
-      forecast_day_looker_10000_zips.max_temp: red
-      forecast_day_looker_10000_zips.min_temp: blue
+      forecast_day_zips.max_temp: red
+      forecast_day_zips.min_temp: blue
     defaults_version: 1
     listen:
-      City: zip_to_city.primary_city
+      City: zip_to_city.city
       State: zip_to_city.state
-      Postal Code: forecast_day_looker_10000_zips.postal_code
+      Postal Code: forecast_day_zips.postal_code
     row: 20
     col: 0
     width: 24
@@ -308,13 +308,13 @@
   - title: Avg Temp Swing
     name: Avg Temp Swing
     model: weathersource
-    explore: forecast_day_looker_10000_zips
+    explore: forecast_day_zips
     type: looker_line
-    fields: [forecast_day_looker_10000_zips.date_valid_std_date, forecast_day_looker_10000_zips.average_temperature_swing]
-    fill_fields: [forecast_day_looker_10000_zips.date_valid_std_date]
+    fields: [forecast_day_zips.date_valid_std_date, forecast_day_zips.average_temperature_swing]
+    fill_fields: [forecast_day_zips.date_valid_std_date]
     filters:
-      forecast_day_looker_10000_zips.date_valid_std_date: after 1 days from now
-    sorts: [forecast_day_looker_10000_zips.date_valid_std_date desc]
+      forecast_day_zips.date_valid_std_date: after 1 days from now
+    sorts: [forecast_day_zips.date_valid_std_date desc]
     limit: 500
     x_axis_gridlines: false
     y_axis_gridlines: true
@@ -342,9 +342,9 @@
     interpolation: monotone
     defaults_version: 1
     listen:
-      City: zip_to_city.primary_city
+      City: zip_to_city.city
       State: zip_to_city.state
-      Postal Code: forecast_day_looker_10000_zips.postal_code
+      Postal Code: forecast_day_zips.postal_code
     row: 12
     col: 10
     width: 14
@@ -352,14 +352,14 @@
   - title: Temp vs Humidity
     name: Temp vs Humidity
     model: weathersource
-    explore: forecast_day_looker_10000_zips
+    explore: forecast_day_zips
     type: looker_scatter
-    fields: [forecast_day_looker_10000_zips.date_valid_std_date, forecast_day_looker_10000_zips.average_humidity,
-      forecast_day_looker_10000_zips.average_temp]
-    fill_fields: [forecast_day_looker_10000_zips.date_valid_std_date]
+    fields: [forecast_day_zips.date_valid_std_date, forecast_day_zips.average_humidity,
+      forecast_day_zips.average_temp]
+    fill_fields: [forecast_day_zips.date_valid_std_date]
     filters:
-      forecast_day_looker_10000_zips.date_valid_std_date: after 1 days from now
-    sorts: [forecast_day_looker_10000_zips.date_valid_std_date desc]
+      forecast_day_zips.date_valid_std_date: after 1 days from now
+    sorts: [forecast_day_zips.date_valid_std_date desc]
     limit: 500
     x_axis_gridlines: false
     y_axis_gridlines: true
@@ -384,18 +384,18 @@
     x_axis_scale: auto
     y_axis_combined: true
     show_null_points: true
-    y_axes: [{label: '', orientation: left, series: [{axisId: forecast_day_looker_10000_zips.average_temp,
-            id: forecast_day_looker_10000_zips.average_temp, name: Average Temp},
-          {axisId: forecast_day_looker_10000_zips.average_humidity, id: forecast_day_looker_10000_zips.average_humidity,
+    y_axes: [{label: '', orientation: left, series: [{axisId: forecast_day_zips.average_temp,
+            id: forecast_day_zips.average_temp, name: Average Temp},
+          {axisId: forecast_day_zips.average_humidity, id: forecast_day_zips.average_humidity,
             name: Average Humidity}], showLabels: true, showValues: true, unpinAxis: false,
         tickDensity: default, tickDensityCustom: 5, type: linear}]
     series_types: {}
     interpolation: linear
     defaults_version: 1
     listen:
-      City: zip_to_city.primary_city
+      City: zip_to_city.city
       State: zip_to_city.state
-      Postal Code: forecast_day_looker_10000_zips.postal_code
+      Postal Code: forecast_day_zips.postal_code
     row: 4
     col: 10
     width: 14
@@ -408,9 +408,9 @@
     allow_multiple_values: true
     required: false
     model: weathersource
-    explore: forecast_day_looker_10000_zips
+    explore: forecast_day_zips
     listens_to_filters: [State]
-    field: zip_to_city.primary_city
+    field: zip_to_city.city
   - name: State
     title: State
     type: field_filter
@@ -418,7 +418,7 @@
     allow_multiple_values: true
     required: false
     model: weathersource
-    explore: forecast_day_looker_10000_zips
+    explore: forecast_day_zips
     listens_to_filters: [City]
     field: zip_to_city.state
   - name: Postal Code
@@ -428,6 +428,6 @@
     allow_multiple_values: true
     required: false
     model: weathersource
-    explore: forecast_day_looker_10000_zips
+    explore: forecast_day_zips
     listens_to_filters: [State, City]
-    field: forecast_day_looker_10000_zips.postal_code
+    field: forecast_day_zips.postal_code

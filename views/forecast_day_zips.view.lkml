@@ -1,5 +1,5 @@
-view: history_day_looker_10000_zips {
-  sql_table_name: postcode.history_day_looker_10000_zips
+view: forecast_day_zips {
+  sql_table_name: @{schema_name}.forecast_day
     ;;
 
 #######################
@@ -340,6 +340,20 @@ view: history_day_looker_10000_zips {
     sql: ${TABLE}.tot_snowfall_in ;;
   }
 
+## Probabilities
+  dimension: probability_of_precipitation_pct {
+    hidden:yes
+    type: number
+    sql: ${TABLE}.probability_of_precipitation_pct ;;
+  }
+
+  dimension: probability_of_snow_pct {
+    hidden:yes
+    type: number
+    sql: ${TABLE}.probability_of_snow_pct ;;
+  }
+
+
 #######################
 ## Derived Dimensions
 #######################
@@ -380,6 +394,21 @@ view: history_day_looker_10000_zips {
     sql: ${TABLE}.date_valid_std ;;
   }
 
+  dimension_group: time_init_utc {
+    hidden: yes
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${TABLE}."TIME_INIT_UTC" ;;
+  }
+
   dimension: doy_std {
     hidden: yes
     type: number
@@ -391,8 +420,8 @@ view: history_day_looker_10000_zips {
 #######################
 
   dimension: country {
-    type: string
     hidden: yes
+    type: string
     sql: ${TABLE}.country ;;
   }
 
@@ -434,6 +463,7 @@ view: history_day_looker_10000_zips {
 #######################
 
   measure: count {
+    hidden: yes
     type: count
     drill_fields: []
   }
@@ -541,7 +571,4 @@ view: history_day_looker_10000_zips {
   set: drill_fields {
     fields: [postal_code]
   }
-
-
-
 }

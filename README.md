@@ -41,7 +41,7 @@
   * Navigate to each dashboard and make note of the dashboard IDs which can be found in the url (i.e. if the url is company.looker.com/dashboards/886 then **886** is the dashboard IDs)
   * Use these IDs to update the appropriate links in four locations (next step)
 
-* **Links**: You will find links in these view files: ``forecast_day_looker_10000_zips``, ``history_day_looker_10000_zips``, ``zip_to_city``, ``county_fips_codes``. These will need to updated to reflect the new dashboard s.
+* **Links**: You will find links in these view files: ``forecast_day_zips``, ``history_day_zips``, ``zip_to_city``, ``county_fips_codes``. These will need to updated to reflect the new dashboard s.
   * Dashboard IDs are the digits that immediately follow `mycompany.looker.com/dashboards/` (see previous step on how to find the ID of a dashboard).
   * Search for `link` [see link documentation](https://docs.looker.com/reference/field-params/link) in all of the view files listed in the first bullet point of this section. Under the `url` parameter of each link, change the dashboard ID to reflect your dashboard IDs.
     * If the label ends in `- Deep Dive`, the dashboard ID should be for the `Zip Detail` dashboard
@@ -76,10 +76,10 @@
 
 * ``weathersource`` contains all join logic to build out the relevant explores: Historical Data - FIPS Level, Historical Data - ZIP Level, and Forecast Data - ZIP Level.
 
-* ``climatology_day_looker_10000_zips``: contains all of the dimensions and measures for climatological zip code data. Many of the dimensions are hidden using the ``hidden: yes`` parameter. This is done to create a more intuitive explore.
-* ``forecast_day_looker_10000_zips``: contains all of the dimensions and measures for forecasted zip code data (seven day forecast). Many of the dimensions are hidden using the ``hidden: yes`` parameter. This is done to create a more intuitive explore.
-* ``history_day_looker_10000_zips``: contains all of the dimensions and measures for historical zip code data (two years of data). Many of the dimensions are hidden using the ``hidden: yes`` parameter. This is done to create a more intuitive explore.
-* ``zip_to_city``: this view file is used to map zip codes to particular cities. It is joined with the following view files: ``climatology_day_looker_10000_zips``, ``forecast_day_looker_10000_zips``, ``history_day_looker_10000_zips``
+* ``climatology_day_zips``: contains all of the dimensions and measures for climatological zip code data. Many of the dimensions are hidden using the ``hidden: yes`` parameter. This is done to create a more intuitive explore.
+* ``forecast_day__zips``: contains all of the dimensions and measures for forecasted zip code data (seven day forecast). Many of the dimensions are hidden using the ``hidden: yes`` parameter. This is done to create a more intuitive explore.
+* ``history_day_zips``: contains all of the dimensions and measures for historical zip code data (two years of data). Many of the dimensions are hidden using the ``hidden: yes`` parameter. This is done to create a more intuitive explore.
+* ``zip_to_city``: this view file is used to map zip codes to particular cities. It is joined with the following view files: ``climatology_day_zips``, ``forecast_day_zips``, ``history_day_zips``
 * ``zip_detail``: this dashboard allows a user to see a high level summary for a particular zip code for the last 30 days (default). You can click on any zip code on the map to drill down further or use the filter options. You can also link out to the zip forecast and zip anomaly dashboards from here to see the forecast for that particular zip code or see upcoming weather anomalies.
 * ``zip_forecast``: this dashboard allows a user to see the seven day forecast for a particular zip code.
 * ``zip_anomaly``: this dashboard shows the upcoming weather anomalies. It requires a zip code before it will populate with data and is usually reached by linking from the zip detail of zip forecast dashboard

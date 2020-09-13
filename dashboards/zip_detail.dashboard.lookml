@@ -5,10 +5,10 @@
   - title: Total Snowfall by Postal Code
     name: Total Snowfall by Postal Code
     model: weathersource
-    explore: history_day_looker_10000_zips
+    explore: history_day_zips
     type: looker_map
-    fields: [history_day_looker_10000_zips.postal_code, history_day_looker_10000_zips.total_snow]
-    sorts: [history_day_looker_10000_zips.total_snow desc]
+    fields: [history_day_zips.postal_code, history_day_zips.total_snow]
+    sorts: [history_day_zips.total_snow desc]
     limit: 500
     query_timezone: America/Los_Angeles
     map_plot_mode: points
@@ -35,10 +35,10 @@
     series_types: {}
     defaults_version: 1
     listen:
-      Date: history_day_looker_10000_zips.date_valid_std_date
-      City: zip_to_city.primary_city
+      Date: history_day_zips.date_valid_std_date
+      City: zip_to_city.city
       State: zip_to_city.state
-      Postal Code: history_day_looker_10000_zips.postal_code
+      Postal Code: history_day_zips.postal_code
     row: 7
     col: 0
     width: 10
@@ -46,10 +46,10 @@
   - title: Total Rainfall by Postal Code
     name: Total Rainfall by Postal Code
     model: weathersource
-    explore: history_day_looker_10000_zips
+    explore: history_day_zips
     type: looker_map
-    fields: [history_day_looker_10000_zips.postal_code, history_day_looker_10000_zips.total_rain]
-    sorts: [history_day_looker_10000_zips.total_rain desc]
+    fields: [history_day_zips.postal_code, history_day_zips.total_rain]
+    sorts: [history_day_zips.total_rain desc]
     limit: 500
     query_timezone: America/Los_Angeles
     map_plot_mode: points
@@ -76,10 +76,10 @@
     series_types: {}
     defaults_version: 1
     listen:
-      Date: history_day_looker_10000_zips.date_valid_std_date
-      City: zip_to_city.primary_city
+      Date: history_day_zips.date_valid_std_date
+      City: zip_to_city.city
       State: zip_to_city.state
-      Postal Code: history_day_looker_10000_zips.postal_code
+      Postal Code: history_day_zips.postal_code
     row: 16
     col: 0
     width: 10
@@ -87,11 +87,11 @@
   - title: Highest Temp
     name: Highest Temp
     model: weathersource
-    explore: history_day_looker_10000_zips
+    explore: history_day_zips
     type: single_value
-    fields: [history_day_looker_10000_zips.postal_code, history_day_looker_10000_zips.max_temp,
-      history_day_looker_10000_zips.date_valid_std_date, zip_to_city.city_state]
-    sorts: [history_day_looker_10000_zips.max_temp desc]
+    fields: [history_day_zips.postal_code, history_day_zips.max_temp,
+      history_day_zips.date_valid_std_date, zip_to_city.city_state]
+    sorts: [history_day_zips.max_temp desc]
     limit: 1
     column_limit: 50
     custom_color_enabled: true
@@ -133,12 +133,12 @@
     reverse_map_value_colors: false
     defaults_version: 1
     series_types: {}
-    hidden_fields: [history_day_looker_10000_zips.postal_code, history_day_looker_10000_zips.date_valid_std_date]
+    hidden_fields: [history_day_zips.postal_code, history_day_zips.date_valid_std_date]
     listen:
-      Date: history_day_looker_10000_zips.date_valid_std_date
-      City: zip_to_city.primary_city
+      Date: history_day_zips.date_valid_std_date
+      City: zip_to_city.city
       State: zip_to_city.state
-      Postal Code: history_day_looker_10000_zips.postal_code
+      Postal Code: history_day_zips.postal_code
     row: 3
     col: 0
     width: 8
@@ -146,11 +146,11 @@
   - title: Coldest Temp
     name: Coldest Temp
     model: weathersource
-    explore: history_day_looker_10000_zips
+    explore: history_day_zips
     type: single_value
-    fields: [history_day_looker_10000_zips.postal_code, history_day_looker_10000_zips.date_valid_std_date,
-      history_day_looker_10000_zips.min_temp, zip_to_city.city_state]
-    sorts: [history_day_looker_10000_zips.min_temp]
+    fields: [history_day_zips.postal_code, history_day_zips.date_valid_std_date,
+      history_day_zips.min_temp, zip_to_city.city_state]
+    sorts: [history_day_zips.min_temp]
     limit: 1
     column_limit: 50
     custom_color_enabled: true
@@ -191,12 +191,12 @@
     reverse_map_value_colors: false
     defaults_version: 1
     series_types: {}
-    hidden_fields: [history_day_looker_10000_zips.postal_code, history_day_looker_10000_zips.date_valid_std_date]
+    hidden_fields: [history_day_zips.postal_code, history_day_zips.date_valid_std_date]
     listen:
-      Date: history_day_looker_10000_zips.date_valid_std_date
-      City: zip_to_city.primary_city
+      Date: history_day_zips.date_valid_std_date
+      City: zip_to_city.city
       State: zip_to_city.state
-      Postal Code: history_day_looker_10000_zips.postal_code
+      Postal Code: history_day_zips.postal_code
     row: 3
     col: 16
     width: 8
@@ -204,11 +204,11 @@
   - title: Avg Temp Swing
     name: Avg Temp Swing
     model: weathersource
-    explore: history_day_looker_10000_zips
+    explore: history_day_zips
     type: looker_line
-    fields: [history_day_looker_10000_zips.date_valid_std_date, history_day_looker_10000_zips.average_temperature_swing]
-    fill_fields: [history_day_looker_10000_zips.date_valid_std_date]
-    sorts: [history_day_looker_10000_zips.date_valid_std_date desc]
+    fields: [history_day_zips.date_valid_std_date, history_day_zips.average_temperature_swing]
+    fill_fields: [history_day_zips.date_valid_std_date]
+    sorts: [history_day_zips.date_valid_std_date desc]
     limit: 30
     column_limit: 50
     x_axis_gridlines: false
@@ -275,10 +275,10 @@
     defaults_version: 1
     hidden_fields: []
     listen:
-      Date: history_day_looker_10000_zips.date_valid_std_date
-      City: zip_to_city.primary_city
+      Date: history_day_zips.date_valid_std_date
+      City: zip_to_city.city
       State: zip_to_city.state
-      Postal Code: history_day_looker_10000_zips.postal_code
+      Postal Code: history_day_zips.postal_code
     row: 16
     col: 10
     width: 14
@@ -286,12 +286,12 @@
   - title: Temp vs Humidity
     name: Temp vs Humidity
     model: weathersource
-    explore: history_day_looker_10000_zips
+    explore: history_day_zips
     type: looker_scatter
-    fields: [history_day_looker_10000_zips.date_valid_std_date, history_day_looker_10000_zips.average_humidity,
-      history_day_looker_10000_zips.average_temp]
-    fill_fields: [history_day_looker_10000_zips.date_valid_std_date]
-    sorts: [history_day_looker_10000_zips.date_valid_std_date desc]
+    fields: [history_day_zips.date_valid_std_date, history_day_zips.average_humidity,
+      history_day_zips.average_temp]
+    fill_fields: [history_day_zips.date_valid_std_date]
+    sorts: [history_day_zips.date_valid_std_date desc]
     limit: 30
     column_limit: 50
     x_axis_gridlines: false
@@ -317,9 +317,9 @@
     x_axis_scale: auto
     y_axis_combined: true
     show_null_points: false
-    y_axes: [{label: '', orientation: left, series: [{axisId: history_day_looker_10000_zips.average_temp,
-            id: history_day_looker_10000_zips.average_temp, name: Average Temp}, {
-            axisId: history_day_looker_10000_zips.average_humidity, id: history_day_looker_10000_zips.average_humidity,
+    y_axes: [{label: '', orientation: left, series: [{axisId: history_day_zips.average_temp,
+            id: history_day_zips.average_temp, name: Average Temp}, {
+            axisId: history_day_zips.average_humidity, id: history_day_zips.average_humidity,
             name: Average Humidity}], showLabels: true, showValues: true, unpinAxis: false,
         tickDensity: default, type: linear}]
     x_axis_label: Date
@@ -363,10 +363,10 @@
     hidden_fields: []
     interpolation: linear
     listen:
-      Date: history_day_looker_10000_zips.date_valid_std_date
-      City: zip_to_city.primary_city
+      Date: history_day_zips.date_valid_std_date
+      City: zip_to_city.city
       State: zip_to_city.state
-      Postal Code: history_day_looker_10000_zips.postal_code
+      Postal Code: history_day_zips.postal_code
     row: 7
     col: 10
     width: 14
@@ -374,11 +374,11 @@
   - title: Max Temp Swing
     name: Max Temp Swing
     model: weathersource
-    explore: history_day_looker_10000_zips
+    explore: history_day_zips
     type: single_value
-    fields: [history_day_looker_10000_zips.max_temperature_swing, history_day_looker_10000_zips.date_valid_std_date,
-      history_day_looker_10000_zips.postal_code, zip_to_city.city_state]
-    sorts: [history_day_looker_10000_zips.max_temperature_swing desc]
+    fields: [history_day_zips.max_temperature_swing, history_day_zips.date_valid_std_date,
+      history_day_zips.postal_code, zip_to_city.city_state]
+    sorts: [history_day_zips.max_temperature_swing desc]
     limit: 1
     column_limit: 50
     custom_color_enabled: true
@@ -401,9 +401,9 @@
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
-    y_axes: [{label: '', orientation: left, series: [{axisId: history_day_looker_10000_zips.average_temp,
-            id: history_day_looker_10000_zips.average_temp, name: Average Temp}, {
-            axisId: history_day_looker_10000_zips.average_humidity, id: history_day_looker_10000_zips.average_humidity,
+    y_axes: [{label: '', orientation: left, series: [{axisId: history_day_zips.average_temp,
+            id: history_day_zips.average_temp, name: Average Temp}, {
+            axisId: history_day_zips.average_humidity, id: history_day_zips.average_humidity,
             name: Average Humidity}], showLabels: true, showValues: true, unpinAxis: false,
         tickDensity: default, type: linear}]
     show_y_axis_labels: true
@@ -448,13 +448,13 @@
     quantize_map_value_colors: false
     reverse_map_value_colors: false
     defaults_version: 1
-    hidden_fields: [history_day_looker_10000_zips.postal_code, history_day_looker_10000_zips.date_valid_std_date]
+    hidden_fields: [history_day_zips.postal_code, history_day_zips.date_valid_std_date]
     interpolation: linear
     listen:
-      Date: history_day_looker_10000_zips.date_valid_std_date
-      City: zip_to_city.primary_city
+      Date: history_day_zips.date_valid_std_date
+      City: zip_to_city.city
       State: zip_to_city.state
-      Postal Code: history_day_looker_10000_zips.postal_code
+      Postal Code: history_day_zips.postal_code
     row: 3
     col: 8
     width: 8
@@ -491,12 +491,12 @@
   - title: Max / Min Temperature by Day
     name: Max / Min Temperature by Day
     model: weathersource
-    explore: history_day_looker_10000_zips
+    explore: history_day_zips
     type: looker_line
-    fields: [history_day_looker_10000_zips.date_valid_std_date, history_day_looker_10000_zips.max_temp,
-      history_day_looker_10000_zips.min_temp]
-    fill_fields: [history_day_looker_10000_zips.date_valid_std_date]
-    sorts: [history_day_looker_10000_zips.date_valid_std_date desc]
+    fields: [history_day_zips.date_valid_std_date, history_day_zips.max_temp,
+      history_day_zips.min_temp]
+    fill_fields: [history_day_zips.date_valid_std_date]
+    sorts: [history_day_zips.date_valid_std_date desc]
     limit: 500
     x_axis_gridlines: false
     y_axis_gridlines: true
@@ -525,14 +525,14 @@
     x_axis_label: Date
     series_types: {}
     series_colors:
-      history_day_looker_10000_zips.max_temp: red
-      history_day_looker_10000_zips.min_temp: blue
+      history_day_zips.max_temp: red
+      history_day_zips.min_temp: blue
     defaults_version: 1
     listen:
-      Date: history_day_looker_10000_zips.date_valid_std_date
-      City: zip_to_city.primary_city
+      Date: history_day_zips.date_valid_std_date
+      City: zip_to_city.city
       State: zip_to_city.state
-      Postal Code: history_day_looker_10000_zips.postal_code
+      Postal Code: history_day_zips.postal_code
     row: 23
     col: 0
     width: 24
@@ -551,9 +551,9 @@
     allow_multiple_values: true
     required: false
     model: weathersource
-    explore: history_day_looker_10000_zips
+    explore: history_day_zips
     listens_to_filters: [State]
-    field: zip_to_city.primary_city
+    field: zip_to_city.city
   - name: State
     title: State
     type: field_filter
@@ -561,7 +561,7 @@
     allow_multiple_values: true
     required: false
     model: weathersource
-    explore: history_day_looker_10000_zips
+    explore: history_day_zips
     listens_to_filters: [City]
     field: zip_to_city.state
   - name: Postal Code
@@ -571,6 +571,6 @@
     allow_multiple_values: true
     required: false
     model: weathersource
-    explore: history_day_looker_10000_zips
+    explore: history_day_zips
     listens_to_filters: [City, State]
-    field: history_day_looker_10000_zips.postal_code
+    field: history_day_zips.postal_code
