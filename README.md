@@ -32,22 +32,9 @@
 
 ## Customizations
 
-* **Connection**: in the `weathersource` model file, change the connection name at the top to the name of your Snowflake share connection.
+* **Connection**: in the `weathersource` manifest file, change the connection name to the name of your Snowflake share connection.
 
-* **Dashboards**: you'll want to move to dashboards out of the LookML Dashboards folder.
-  * Navigate to the LookML dashboards folder under `Browse`->`All folders`->`LookML Dashboards`
-  * Select the three dashboards from the block (Zip Detail, Zip Forecast, Zip Anomaly) and then select **Import** at the top
-  * This will allow you to move these dashboards into any folder and change them from LookML dashboards to User-Defined dashboards
-  * Navigate to each dashboard and make note of the dashboard IDs which can be found in the url (i.e. if the url is company.looker.com/dashboards/886 then **886** is the dashboard IDs)
-  * Use these IDs to update the appropriate links in four locations (next step)
-
-* **Links**: You will find links in these view files: ``forecast_day_zips``, ``history_day_zips``, ``zip_to_city``, ``county_fips_codes``. These will need to updated to reflect the new dashboard s.
-  * Dashboard IDs are the digits that immediately follow `mycompany.looker.com/dashboards/` (see previous step on how to find the ID of a dashboard).
-  * Search for `link` [see link documentation](https://docs.looker.com/reference/field-params/link) in all of the view files listed in the first bullet point of this section. Under the `url` parameter of each link, change the dashboard ID to reflect your dashboard IDs.
-    * If the label ends in `- Deep Dive`, the dashboard ID should be for the `Zip Detail` dashboard
-      * Example: if the url in the  parameter is: `url: "/dashboards/866?Postal%20Code={{ value }}"` and your dashboard ID is `45`, change the code to: `url: "/dashboards/45?Postal%20Code={{ value }}"`
-    * If the label ends in `- Forecast`, the dashboard ID should be for the `Zip Forecast` dashboard
-    * If the label ends in `- Anomaly`, the dashboard ID should be for the `Zip Anomaly` dashboard
+* **Schema**: in the `weathersource` manifest file, change the schema name to the schema name where the data tables are. Most likely this is <b>PUBLIC</b>
 
 ## Weather Source Data Structure
 
