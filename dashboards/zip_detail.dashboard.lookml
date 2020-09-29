@@ -463,9 +463,9 @@
     type: text
     title_text: ''
     body_text: |-
-      <a type="button" target="_self"  href="/dashboards/866?Date=30%20days" class="btn btn-primary btn-lg btn-block">Last 30 Days</a>
+      <a type="button" target="_self"  href="/dashboards/weathersource::zip_detail?Date=30%20days" class="btn btn-primary btn-lg btn-block">Last 30 Days</a>
 
-      <a type="button" target="_self"  href="/dashboards/866?Date=7%20days" class="btn btn-primary btn-lg btn-block">Last 7 Days</a>
+      <a type="button" target="_self"  href="/dashboards/weathersource::zip_detail?Date=7%20days" class="btn btn-primary btn-lg btn-block">Last 7 Days</a>
     row: 0
     col: 0
     width: 8
@@ -481,9 +481,9 @@
   - name: " (3)"
     type: text
     body_text: |-
-      <a type="button" target="_self"  href="/dashboards/881?Date=7%20days" class="btn btn-primary btn-lg btn-block">7 Day Forecast</a>
+      <a type="button" target="_self"  href="/dashboards/weathersource::zip_forecast?Date=7%20days" class="btn btn-primary btn-lg btn-block">7 Day Forecast</a>
 
-      <a type="button" target="_self"  href="/dashboards/866?Date=7%20days" class="btn btn-primary btn-lg btn-block">7 Day Forecast Anomaly</a>
+      <a type="button" target="_self"  href="/dashboards/weathersource::zip_forecast_anomalies?Date=7%20days" class="btn btn-primary btn-lg btn-block">7 Day Forecast Anomaly</a>
     row: 0
     col: 16
     width: 8

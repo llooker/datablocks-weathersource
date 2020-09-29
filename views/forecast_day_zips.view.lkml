@@ -434,27 +434,27 @@ view: forecast_day_zips {
     link: {
       label: "{{ zip_to_city.city_state._value }} - Deep Dive"
       icon_url: "https://awsmp-logos.s3.amazonaws.com/0d11e4de-e61f-4383-825b-9bcd69598dac/62abb10670ce1f306d5147e144908f32.png"
-      url: "/dashboards/866?Postal%20Code={{ value }}"
+      url: "/dashboards/weathersource::zip_detail?Postal%20Code={{ value }}"
     }
     link: {
       label: "{{ zip_to_city.city._value }}, {{ zip_to_city.state._value }} - Deep Dive"
       icon_url: "https://awsmp-logos.s3.amazonaws.com/0d11e4de-e61f-4383-825b-9bcd69598dac/62abb10670ce1f306d5147e144908f32.png"
-      url: "/dashboards/866?City={{zip_to_city.city._value}}&State={{zip_to_city.state._value}}"
+      url: "/dashboards/weathersource::zip_detail?City={{zip_to_city.city._value}}&State={{zip_to_city.state._value}}"
     }
     link: {
       label: "{{ zip_to_city.city_state._value }} - Forecast"
       icon_url: "https://awsmp-logos.s3.amazonaws.com/0d11e4de-e61f-4383-825b-9bcd69598dac/62abb10670ce1f306d5147e144908f32.png"
-      url: "/dashboards/881?Postal%20Code={{ value }}"
+      url: "/dashboards/weathersource::zip_forecast?Postal%20Code={{ value }}"
     }
     link: {
       label: "{{ zip_to_city.city._value }}, {{ zip_to_city.state._value }} - Forecast"
       icon_url: "https://awsmp-logos.s3.amazonaws.com/0d11e4de-e61f-4383-825b-9bcd69598dac/62abb10670ce1f306d5147e144908f32.png"
-      url: "/dashboards/881?City={{zip_to_city.city._value}}&State={{zip_to_city.state._value}}"
+      url: "/dashboards/weathersource::zip_forecast?City={{zip_to_city.city._value}}&State={{zip_to_city.state._value}}"
     }
     link: {
       label: "{{ zip_to_city.city_state._value }} - 7 Day Anomalies"
       icon_url: "https://awsmp-logos.s3.amazonaws.com/0d11e4de-e61f-4383-825b-9bcd69598dac/62abb10670ce1f306d5147e144908f32.png"
-      url: "/dashboards/889?City={{zip_to_city.city._value}}&State={{zip_to_city.state._value}}&Postal%20Code={{ value }}"
+      url: "/dashboards/weathersource::zip_forecast_anomalies?City={{zip_to_city.city._value}}&State={{zip_to_city.state._value}}&Postal%20Code={{ value }}"
     }
   }
 

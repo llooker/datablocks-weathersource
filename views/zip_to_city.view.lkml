@@ -13,27 +13,27 @@ view: zip_to_city {
     link: {
       label: "{{ city_state._value }} - Deep Dive"
       icon_url: "https://awsmp-logos.s3.amazonaws.com/0d11e4de-e61f-4383-825b-9bcd69598dac/62abb10670ce1f306d5147e144908f32.png"
-      url: "/dashboards/866?Postal%20Code={{ zipcode._value }}"
+      url: "/dashboards/weathersource::zip_detail?Postal%20Code={{ value }}"
     }
     link: {
       label: "{{ city._value }}, {{ state._value }} - Deep Dive"
       icon_url: "https://awsmp-logos.s3.amazonaws.com/0d11e4de-e61f-4383-825b-9bcd69598dac/62abb10670ce1f306d5147e144908f32.png"
-      url: "/dashboards/866?City={{city._value}}&State={{state._value}}"
+      url: "/dashboards/weathersource::zip_detail?City={{city._value}}&State={{state._value}}"
     }
     link: {
       label: "{{ city_state._value }} - Forecast"
       icon_url: "https://awsmp-logos.s3.amazonaws.com/0d11e4de-e61f-4383-825b-9bcd69598dac/62abb10670ce1f306d5147e144908f32.png"
-      url: "/dashboards/881?Postal%20Code={{ zipcode._value }}"
+      url: "/dashboards/weathersource::zip_forecast?Postal%20Code={{ value }}"
     }
     link: {
       label: "{{ city._value }}, {{ state._value }} - Forecast"
       icon_url: "https://awsmp-logos.s3.amazonaws.com/0d11e4de-e61f-4383-825b-9bcd69598dac/62abb10670ce1f306d5147e144908f32.png"
-      url: "/dashboards/881?City={{city._value}}&State={{state._value}}"
+      url: "/dashboards/weathersource::zip_forecast?City={{city._value}}&State={{state._value}}"
     }
     link: {
       label: "{{ city_state._value }} - 7 Day Anomalies"
       icon_url: "https://awsmp-logos.s3.amazonaws.com/0d11e4de-e61f-4383-825b-9bcd69598dac/62abb10670ce1f306d5147e144908f32.png"
-      url: "/dashboards/889?City={{city._value}}&State={{state._value}}&Postal%20Code={{ zipcode._value }}"
+      url: "/dashboards/weathersource::zip_forecast_anomalies?City={{city._value}}&State={{state._value}}&Postal%20Code={{ value }}"
     }
   }
 
